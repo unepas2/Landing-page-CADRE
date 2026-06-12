@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CADRE — Le diagnostic de gouvernance IA pour PME | AI Act, shadow IA, conformité</title>
+<meta name="description" content="En 15 questions et 5 minutes, mesurez la gouvernance de l'IA dans votre entreprise : shadow IA, protection des données, conformité avec la loi européenne sur l'IA (AI Act). Score immédiat, plan d'action 30·60·90 jours. Gratuit, sans inscription.">
+<meta property="og:title" content="CADRE — Votre entreprise utilise l'IA. Est-elle sous contrôle ?">
+<meta property="og:description" content="Diagnostic gratuit de gouvernance IA pour PME : score sur 30, constats prioritaires, plan d'action. Conforme aux obligations légales de 2025 sur l'IA.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Crect width='160' height='160' rx='34' fill='%230B2B30'/%3E%3Cg opacity='.42' stroke='%23F0ECE1' stroke-width='1.6'%3E%3Cpath d='M38 38H122M38 64H122M38 90H122M38 116H122'/%3E%3Cpath d='M38 38V116M64 38V116M90 38V116M116 38V116'/%3E%3C/g%3E%3Cpath d='M99 51C91 43 78 40 66 45C51 51 43 68 48 84C53 101 70 110 87 105C93 103 98 100 102 96' fill='none' stroke='%23F0ECE1' stroke-width='13' stroke-linecap='round'/%3E%3Crect x='91' y='36' width='31' height='31' rx='7' fill='%23FFB52E'/%3E%3Cpath d='M100 52L106 58L116 47' fill='none' stroke='%230B2B30' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='51' cy='110' r='7' fill='%23C2402F'/%3E%3Ccircle cx='78' cy='110' r='7' fill='%23FFB52E'/%3E%3Ccircle cx='105' cy='110' r='7' fill='%232E8C66'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:ital,wght@0,400..800;1,400..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════════
+   CADRE · Landing V6 — exécution élevée : héros empilé + parallaxe,
+   charnière diagnostic→offres, tampon avec impact, quiz animé,
+   extrait de registre dans la carte Pilotage.
+   Direction : pétrole profond × jaune signal × papier calcaire.
+   Display : Bricolage Grotesque. Signatures : machine à écrire
+   surlignée dans le héros, surligneur animé sur les titres,
+   bandeau défilant, tampon de verdict.
+   ════════════════════════════════════════════════════════════ */
+:root{
+  --ink:#0B2B30;
+  --ink-2:#071F23;
+  --ink-panneau:#0E343A;
+  --paper:#F0ECE1;
+  --paper-2:#E7E2D2;
+  --paper-3:#FAF8F1;
+  --accent:#FFB52E;
+  --accent-2:#E89C0F;
+  --accent-doux:rgba(255,181,46,.16);
+  --sourdine:#52676A;
+  --sourdine-clair:rgba(240,236,225,.62);
+  --ligne:rgba(11,43,48,.16);
+  --ligne-forte:rgba(11,43,48,.32);
+  --ligne-claire:rgba(240,236,225,.18);
+  --rouge:#C2402F;
+  --orange:#D2691E;
+  --ambre:#C28F2C;
+  --vert:#2E8C66;
+
+  --f-display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
+  --f-body:"Hanken Grotesk","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Consolas,monospace;
+
+  --r-m:18px; --r-l:26px;
+  --ombre-m:0 2px 6px rgba(11,43,48,.05), 0 22px 48px -20px rgba(11,43,48,.25);
+  --ombre-l:0 10px 20px rgba(11,43,48,.07), 0 48px 90px -36px rgba(11,43,48,.38);
+  --nav-h:76px;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .035 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--f-body);background:var(--paper);color:var(--ink);
+  -webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;overflow-x:hidden;
+}
+::selection{background:var(--accent);color:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit}
+section{scroll-margin-top:calc(var(--nav-h) + 14px)}
+.conteneur{max-width:1160px;margin:0 auto;padding:0 clamp(18px,4vw,34px)}
+
+/* ——— Fonds ——— */
+.fond-ink{background:var(--ink);color:var(--paper);position:relative}
+.fond-ink::before{content:"";position:absolute;inset:0;background:var(--grain);pointer-events:none;opacity:.9}
+.fond-ink > *{position:relative}
+
+/* ——— Têtes de section ——— */
+.eyebrow{
+  font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--sourdine);
+  display:inline-flex;align-items:center;gap:11px;
+}
+.eyebrow::before{content:"";width:10px;height:10px;background:var(--accent);flex:none}
+.fond-ink .eyebrow{color:var(--sourdine-clair)}
+.titre-section{
+  font-family:var(--f-display);font-optical-sizing:auto;font-weight:780;
+  font-size:clamp(30px,5vw,48px);line-height:1.02;letter-spacing:-.028em;margin-top:16px;
+}
+.lede{margin-top:16px;color:var(--sourdine);font-size:17px;line-height:1.65;max-width:62ch}
+.fond-ink .lede{color:var(--sourdine-clair)}
+.tete-section{max-width:740px;margin:0 auto;text-align:center}
+.tete-section .lede{margin-left:auto;margin-right:auto}
+
+/* ——— Surligneur animé sur les titres ——— */
+mark{
+  color:inherit;padding:0 .1em;border-radius:.12em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  background:linear-gradient(var(--accent),var(--accent)) no-repeat 0 60% / 0% 74%;
+  transition:background-size .8s cubic-bezier(.65,0,.2,1) .25s, color .35s ease .55s;
+}
+.visible mark, .marque mark{background-size:100% 74%}
+.fond-ink mark{color:var(--paper)}
+.fond-ink .visible mark, .fond-ink .marque mark{color:var(--ink)}
+
+/* ——— Boutons (pill) ——— */
+.btn{
+  appearance:none;border:1.5px solid transparent;cursor:pointer;text-decoration:none;
+  font-family:var(--f-body);font-weight:800;font-size:15.5px;letter-spacing:.002em;
+  padding:16px 30px;border-radius:999px;position:relative;overflow:hidden;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+  white-space:nowrap;isolation:isolate;
+}
+.btn svg{transition:transform .18s ease}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primaire{
+  background:var(--accent);color:var(--ink);
+  box-shadow:0 16px 32px -14px rgba(232,156,15,.65), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.btn-primaire::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.55) 50%,transparent 62%);
+  transform:translateX(-130%);transition:transform .7s ease;
+}
+.btn-primaire:hover{transform:translateY(-2px);box-shadow:0 22px 40px -16px rgba(232,156,15,.75), inset 0 1px 0 rgba(255,255,255,.4)}
+.btn-primaire:hover::after{transform:translateX(130%)}
+.btn-primaire:active{transform:translateY(0)}
+.btn-contour{background:transparent;border-color:var(--ligne-forte);color:var(--ink)}
+.btn-contour:hover{border-color:var(--ink);background:var(--paper-3);transform:translateY(-2px)}
+.fond-ink .btn-contour{border-color:rgba(240,236,225,.35);color:var(--paper)}
+.fond-ink .btn-contour:hover{border-color:var(--paper);background:rgba(240,236,225,.07)}
+.btn-large{padding:18px 36px;font-size:16.5px}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{
+  outline:2.5px solid var(--accent-2);outline-offset:3px;border-radius:6px;
+}
+
+/* ════════════════════ NAVIGATION ════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:90;height:var(--nav-h);display:flex;align-items:center;
+  background:rgba(240,236,225,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .25s ease;
+}
+.nav.defile{border-bottom-color:var(--ligne)}
+.nav-int{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo-cadre{width:40px;height:40px;flex:none}
+.logo-cadre svg{width:40px;height:40px;display:block}
+.logo b{font-family:var(--f-display);font-weight:800;font-size:21px;letter-spacing:-.01em}
+.logo small{font-family:var(--f-mono);font-size:9px;letter-spacing:.16em;color:var(--sourdine);display:block;margin-top:1px}
+.nav-liens{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-liens a{
+  text-decoration:none;font-size:14.5px;font-weight:650;color:var(--sourdine);
+  padding-bottom:3px;background:linear-gradient(var(--accent),var(--accent)) no-repeat 0 100%/0% 2.5px;
+  transition:color .15s ease, background-size .25s ease;
+}
+.nav-liens a:hover{color:var(--ink);background-size:100% 2.5px}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.nav-cta .btn{padding:12px 22px;font-size:14.5px}
+.lbl-court{display:none}
+.burger{
+  display:none;appearance:none;background:none;border:1.5px solid var(--ligne-forte);
+  border-radius:999px;width:44px;height:44px;cursor:pointer;
+  flex-direction:column;align-items:center;justify-content:center;gap:5px;
+}
+.burger i{width:18px;height:2px;background:var(--ink);border-radius:2px;transition:transform .2s ease, opacity .2s ease}
+.nav-mobile{
+  display:none;position:fixed;top:var(--nav-h);left:0;right:0;z-index:89;
+  background:var(--paper-3);border-bottom:1px solid var(--ligne);box-shadow:var(--ombre-m);
+  padding:10px clamp(18px,4vw,34px) 18px;
+}
+.nav-mobile a{display:block;padding:14px 4px;text-decoration:none;font-weight:650;font-size:16px;border-bottom:1px solid var(--ligne)}
+.nav-mobile a:last-child{border-bottom:none}
+body.menu-ouvert .nav-mobile{display:block}
+body.menu-ouvert .burger i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.menu-ouvert .burger i:nth-child(2){opacity:0}
+body.menu-ouvert .burger i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ════════════════════ HÉROS ════════════════════ */
+.heros{padding:calc(var(--nav-h) + clamp(48px,8vw,92px)) 0 clamp(60px,9vw,104px);position:relative;overflow:hidden}
+.heros::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(720px 460px at 86% 4%, rgba(255,181,46,.13), transparent 62%),
+    radial-gradient(560px 420px at 2% 96%, rgba(11,43,48,.07), transparent 60%);
+}
+.heros-int{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(30px,5vw,70px);align-items:center}
+.badge-loi{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.1em;
+  color:var(--ink);background:var(--paper-3);border:1.5px solid var(--ligne-forte);
+  border-radius:999px;padding:9px 17px;
+}
+.badge-loi i{width:8px;height:8px;border-radius:99px;background:var(--rouge);flex:none;animation:pulser 2.4s ease infinite}
+@keyframes pulser{0%,100%{box-shadow:0 0 0 0 rgba(194,64,47,.4)}50%{box-shadow:0 0 0 7px rgba(194,64,47,0)}}
+
+.heros h1{
+  font-family:var(--f-display);font-optical-sizing:auto;font-weight:800;
+  font-size:clamp(40px,6.2vw,72px);line-height:.98;letter-spacing:-.035em;margin-top:26px;
+}
+.heros h1 .l1{display:block}
+.heros h1 .l2{display:block;margin-top:.14em;min-height:1.08em}
+#tw{
+  background:var(--accent);padding:.02em .12em;border-radius:.1em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+}
+#tw:empty{padding:0}
+.curseur{
+  display:inline-block;width:.5em;height:.92em;background:var(--ink);
+  margin-left:.1em;vertical-align:-.07em;border-radius:2px;
+  animation:cligner 1.05s steps(2,start) infinite;
+}
+@keyframes cligner{to{visibility:hidden}}
+
+.heros .lede{font-size:18px;max-width:54ch}
+.heros .lede strong{color:var(--ink);font-weight:700}
+.heros-actions{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px}
+.heros-garanties{
+  margin-top:26px;display:flex;flex-wrap:wrap;gap:9px 24px;
+  font-family:var(--f-mono);font-size:11.5px;letter-spacing:.02em;color:var(--sourdine);
+}
+.heros-garanties span{display:inline-flex;align-items:center;gap:8px}
+.heros-garanties svg{flex:none}
+
+/* Séquence d'entrée */
+.anim{opacity:0;transform:translateY(18px);animation:montee .7s cubic-bezier(.2,.7,.3,1) forwards}
+.anim.d1{animation-delay:.05s}.anim.d2{animation-delay:.16s}.anim.d3{animation-delay:.3s}
+.anim.d4{animation-delay:.44s}.anim.d5{animation-delay:.58s}
+@keyframes montee{to{opacity:1;transform:none}}
+
+/* Aperçu produit : relevé scotché */
+.apercu-zone{position:relative;justify-self:center;width:min(450px,100%);perspective:1000px}
+.apercu{
+  background:var(--paper-3);border:1.5px solid var(--ink);border-radius:var(--r-m);
+  box-shadow:var(--ombre-l);padding:26px 26px 24px;position:relative;z-index:1;transform:rotate(-1.8deg);
+  transition:transform .3s ease;will-change:transform;
+}
+.scotch{
+  position:absolute;top:-15px;left:50%;transform:translateX(-50%) rotate(-3deg);
+  width:118px;height:30px;background:rgba(255,181,46,.78);border-radius:3px;
+  box-shadow:0 2px 5px rgba(11,43,48,.14);
+}
+.scotch::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.6}
+.apercu-tete{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.apercu-tete small{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.2em;color:var(--sourdine)}
+.apercu-tete .points{display:flex;gap:5px}
+.apercu-tete .points i{width:8px;height:8px;border-radius:99px;background:var(--paper-2)}
+.apercu-score{display:flex;align-items:flex-end;gap:7px;margin-top:18px}
+.apercu-score b{font-family:var(--f-display);font-weight:800;font-size:66px;line-height:.85;letter-spacing:-.04em}
+.apercu-score span{font-family:var(--f-mono);font-size:13px;color:var(--sourdine);padding-bottom:5px}
+.apercu-barres{margin-top:20px;display:grid;gap:11px}
+.apercu-barre{display:grid;grid-template-columns:86px 1fr 30px;gap:10px;align-items:center}
+.apercu-barre label{font-family:var(--f-mono);font-size:10px;letter-spacing:.04em;color:var(--sourdine)}
+.apercu-barre output{font-family:var(--f-mono);font-size:10px;text-align:right}
+.apercu-piste{height:10px;border-radius:99px;background:var(--paper-2);overflow:hidden}
+.apercu-piste i{display:block;height:100%;border-radius:99px}
+.apercu-constat{
+  margin-top:20px;border-top:1.5px dashed var(--ligne-forte);padding-top:15px;
+  font-size:12.5px;line-height:1.5;color:var(--sourdine);display:flex;gap:9px;
+}
+.apercu-constat::before{content:"";width:8px;height:8px;background:var(--rouge);flex:none;margin-top:5px;border-radius:2px}
+.mini-tampon{
+  position:absolute;top:58px;right:20px;transform:rotate(8deg);
+  font-family:var(--f-mono);font-weight:600;font-size:14px;letter-spacing:.16em;
+  color:var(--orange);border:2.5px solid currentColor;border-radius:4px;padding:7px 12px 6px;
+}
+.mini-tampon::before{content:"";position:absolute;inset:2.5px;border:1px solid currentColor;border-radius:2px}
+.apercu-legende{text-align:center;margin-top:16px;font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;color:var(--sourdine)}
+/* Feuille « plan d'action » qui dépasse derrière le relevé */
+.feuille-plan{
+  position:absolute;right:-22px;bottom:38px;z-index:0;width:218px;
+  background:var(--paper-2);border:1.5px solid var(--ink);border-radius:14px;
+  padding:14px 16px 16px;transform:rotate(3.2deg);
+  box-shadow:0 18px 34px -18px rgba(11,43,48,.35);
+  transition:transform .35s cubic-bezier(.2,.7,.3,1);
+}
+.apercu-zone:hover .feuille-plan{transform:rotate(5.2deg) translate(12px,6px)}
+.feuille-plan small{display:block;font-family:var(--f-mono);font-size:9px;letter-spacing:.2em;color:var(--sourdine);margin-bottom:10px}
+.feuille-plan .pastilles{display:flex;gap:7px}
+.feuille-plan .pastille{font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.08em;border-radius:999px;padding:5px 10px;background:var(--ink);color:var(--accent)}
+
+/* ════════════════════ BANDEAU DÉFILANT ════════════════════ */
+.ticker{overflow:hidden;background:var(--ink);position:relative;padding:15px 0}
+.ticker::before{content:"";position:absolute;inset:0;background:var(--grain)}
+.ticker-piste{display:flex;width:max-content;animation:defiler 32s linear infinite;position:relative}
+.ticker:hover .ticker-piste{animation-play-state:paused}
+.ticker-piste span{
+  font-family:var(--f-mono);font-size:12px;font-weight:500;letter-spacing:.26em;
+  color:var(--accent);white-space:nowrap;padding:0 22px;display:flex;align-items:center;gap:44px;
+}
+.ticker-piste span::after{content:"";width:7px;height:7px;background:var(--accent);flex:none}
+@keyframes defiler{to{transform:translateX(-50%)}}
+
+/* ════════════════════ CHIFFRES ════════════════════ */
+.chiffres{background:var(--paper-2);border-bottom:1px solid var(--ligne)}
+.chiffres-int{display:grid;grid-template-columns:repeat(4,1fr)}
+.chiffre{padding:32px 18px;text-align:center;border-left:1px solid var(--ligne)}
+.chiffre:first-child{border-left:none}
+.chiffre b{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,3.6vw,40px);display:block;line-height:.95;letter-spacing:-.03em}
+.chiffre span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sourdine);display:block;margin-top:9px}
+
+/* ════════════════════ SECTIONS ════════════════════ */
+.section{padding:clamp(68px,9.5vw,118px) 0}
+
+/* — Risques (fond pétrole) — */
+.grille-3{margin-top:clamp(38px,5vw,56px);display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.carte{
+  background:var(--ink-panneau);border:1px solid var(--ligne-claire);border-radius:var(--r-m);
+  padding:32px 28px;position:relative;overflow:hidden;
+  transition:transform .22s ease, border-color .22s ease;
+}
+.carte::after{
+  content:"";position:absolute;left:28px;right:28px;bottom:0;height:3px;border-radius:3px 3px 0 0;
+  background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;
+}
+.carte:hover{transform:translateY(-5px);border-color:rgba(240,236,225,.32)}
+.carte:hover::after{transform:scaleX(1)}
+.carte-icone{
+  width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+  background:rgba(255,181,46,.14);color:var(--accent);border:1px solid rgba(255,181,46,.3);
+}
+.carte.alerte .carte-icone{background:rgba(194,64,47,.16);color:#F08A7B;border-color:rgba(194,64,47,.4)}
+.carte h3{font-family:var(--f-display);font-weight:750;font-size:22px;line-height:1.12;letter-spacing:-.015em;margin-top:20px;color:var(--paper)}
+.carte p{margin-top:11px;font-size:14.5px;line-height:1.68;color:var(--sourdine-clair)}
+.carte p strong{color:var(--paper);font-weight:700}
+
+/* — Méthode (numéros fantômes) — */
+.etapes{margin-top:clamp(40px,5vw,60px);display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.etape{
+  position:relative;background:var(--paper-3);border:1.5px solid var(--ligne);border-radius:var(--r-m);
+  padding:88px 26px 30px;overflow:hidden;transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+.etape:hover{transform:translateY(-5px);border-color:var(--ligne-forte);box-shadow:var(--ombre-m)}
+.etape-num{
+  position:absolute;top:-26px;left:14px;
+  font-family:var(--f-display);font-weight:800;font-size:124px;line-height:1;letter-spacing:-.05em;
+  color:transparent;-webkit-text-stroke:1.5px rgba(11,43,48,.22);pointer-events:none;
+}
+.etape:hover .etape-num{-webkit-text-stroke-color:var(--accent-2)}
+.etape h3{font-family:var(--f-display);font-weight:750;font-size:21px;letter-spacing:-.015em;position:relative}
+.etape p{margin-top:10px;font-size:14.5px;line-height:1.65;color:var(--sourdine);position:relative}
+.etape p b{color:var(--ink);font-weight:700}
+
+/* ════════════════════ DIAGNOSTIC (l'app) ════════════════════ */
+.diag-cadre{
+  margin-top:clamp(36px,5vw,52px);max-width:880px;margin-left:auto;margin-right:auto;
+  background:var(--paper-3);border:1.5px solid var(--ink);border-radius:var(--r-l);
+  box-shadow:var(--ombre-l);overflow:hidden;
+}
+.diag-tete{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:16px 26px;background:var(--ink);color:var(--paper);
+}
+.diag-tete .points{display:flex;gap:6px}
+.diag-tete .points i{width:10px;height:10px;border-radius:99px}
+.diag-tete .points i:nth-child(1){background:#E0705F}
+.diag-tete .points i:nth-child(2){background:var(--accent)}
+.diag-tete .points i:nth-child(3){background:#5DB389}
+.diag-tete small{font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;color:var(--sourdine-clair)}
+.diag-corps{padding:clamp(28px,5vw,48px) clamp(20px,5vw,48px)}
+
+/* Charnière : la carte diagnostic chevauche le fond pétrole des offres */
+#diagnostic{padding-bottom:0}
+.diag-cadre{margin-bottom:-76px;z-index:5;position:relative}
+#offres{padding-top:calc(clamp(68px,9.5vw,118px) + 76px)}
+
+.ecran{display:none}
+.ecran.actif{display:block;animation:apparition .4s ease both}
+@keyframes apparition{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* — accueil du diagnostic — */
+.diag-accueil h3{font-family:var(--f-display);font-weight:780;font-size:clamp(24px,3.6vw,32px);line-height:1.06;letter-spacing:-.022em}
+.diag-accueil > p{margin-top:12px;color:var(--sourdine);font-size:15.5px;max-width:58ch}
+.piliers-liste{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pilier-puce{
+  display:flex;align-items:center;gap:12px;font-size:14px;font-weight:650;
+  border:1.5px solid var(--ligne);border-radius:13px;padding:12px 15px;background:var(--paper);
+  transition:border-color .15s ease;
+}
+.pilier-puce:hover{border-color:var(--ligne-forte)}
+.pilier-puce i{
+  font-family:var(--f-mono);font-style:normal;font-size:10px;font-weight:600;color:var(--ink);
+  width:27px;height:27px;border-radius:9px;display:grid;place-items:center;flex:none;background:var(--accent);
+}
+.pilier-puce.libre{border-style:dashed;color:var(--sourdine);font-weight:500;justify-content:center}
+.diag-demarrer{margin-top:28px;display:flex;flex-wrap:wrap;gap:13px;align-items:center}
+.note-confiance{font-family:var(--f-mono);font-size:11px;color:var(--sourdine);letter-spacing:.02em}
+
+/* — questionnaire — */
+.quiz-tete{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.compteur{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;color:var(--sourdine)}
+.compteur b{color:var(--ink);font-weight:600}
+.barre-progres{margin-top:13px;height:8px;border-radius:99px;background:var(--paper-2);border:1px solid var(--ligne);overflow:hidden}
+.barre-progres i{display:block;height:100%;width:0;border-radius:99px;background:var(--accent);transition:width .55s cubic-bezier(.3,1.3,.4,1)}
+.pilier-tag{
+  margin-top:32px;display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--f-mono);font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink);background:var(--accent-doux);border:1px solid rgba(232,156,15,.45);
+  border-radius:999px;padding:7px 14px;
+}
+.question{
+  font-family:var(--f-display);font-weight:740;font-size:clamp(21px,3.5vw,28px);
+  line-height:1.14;margin-top:16px;letter-spacing:-.018em;min-height:3.5em;
+}
+.options{margin-top:24px;display:grid;gap:11px}
+.option{
+  appearance:none;text-align:left;cursor:pointer;width:100%;
+  background:var(--paper-3);border:1.5px solid var(--ligne-forte);border-radius:14px;
+  padding:16px 17px;display:flex;align-items:center;gap:14px;
+  font-family:var(--f-body);font-size:15.5px;font-weight:550;line-height:1.4;color:var(--ink);
+  transition:background .14s ease, border-color .14s ease, transform .14s ease;
+}
+.option:hover{border-color:var(--ink);background:var(--paper);transform:translateX(5px);box-shadow:0 10px 20px -12px rgba(11,43,48,.3)}
+.option:hover kbd{border-color:var(--ink);color:var(--ink)}
+.option:active{transform:translateX(5px) scale(.99)}
+.option kbd{
+  font-family:var(--f-mono);font-size:11px;width:27px;height:27px;flex:none;border-radius:9px;
+  display:grid;place-items:center;border:1.5px solid var(--ligne-forte);color:var(--sourdine);
+  transition:all .14s ease;
+}
+.option.choisie{border-color:var(--ink);background:var(--accent-doux);box-shadow:inset 4px 0 0 var(--accent)}
+.option.choisie kbd{background:var(--accent);border-color:var(--accent-2);color:var(--ink)}
+.quiz-pied{margin-top:26px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.lien-retour{
+  background:none;border:none;cursor:pointer;font-family:var(--f-mono);font-size:12px;
+  letter-spacing:.06em;color:var(--sourdine);padding:6px 2px;border-bottom:1.5px solid transparent;
+}
+.lien-retour:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.lien-retour:disabled{opacity:.3;cursor:default;border-bottom-color:transparent}
+.astuce{font-family:var(--f-mono);font-size:10.5px;color:var(--sourdine);letter-spacing:.04em}
+
+/* Transition entre questions : tag, question puis options en cascade */
+.q-anim .pilier-tag{animation:glisse-q .42s cubic-bezier(.2,.7,.3,1) both}
+.q-anim .question{animation:glisse-q .42s cubic-bezier(.2,.7,.3,1) .05s both}
+.q-anim .options .option{animation:glisse-q .42s cubic-bezier(.2,.7,.3,1) both}
+.q-anim .options .option:nth-child(1){animation-delay:.1s}
+.q-anim .options .option:nth-child(2){animation-delay:.16s}
+.q-anim .options .option:nth-child(3){animation-delay:.22s}
+@keyframes glisse-q{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* — résultats — */
+.verdict-zone{position:relative;border:1.5px solid var(--ink);border-radius:var(--r-m);padding:32px 28px 28px;background:var(--paper);overflow:hidden;margin-top:8px}
+.score-label{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--sourdine)}
+.score-grand{font-family:var(--f-display);font-weight:800;font-size:clamp(66px,12vw,108px);line-height:.85;letter-spacing:-.045em;margin-top:12px}
+.score-grand small{font-size:.3em;font-weight:600;color:var(--sourdine);letter-spacing:-.01em}
+.verdict-texte{margin-top:14px;font-size:15.5px;line-height:1.65;color:var(--sourdine);max-width:46ch}
+.verdict-texte strong{color:var(--ink)}
+.tampon{
+  position:absolute;top:26px;right:22px;transform:rotate(-8deg);
+  border:3px solid currentColor;border-radius:6px;padding:11px 17px 10px;text-align:center;
+  font-family:var(--f-mono);font-weight:600;letter-spacing:.16em;text-transform:uppercase;pointer-events:none;
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .92 0'/%3E%3C/filter%3E%3Crect width='160' height='160' fill='%23fff'/%3E%3Crect width='160' height='160' filter='url(%23g)' opacity='.45'/%3E%3C/svg%3E");
+          mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .92 0'/%3E%3C/filter%3E%3Crect width='160' height='160' fill='%23fff'/%3E%3Crect width='160' height='160' filter='url(%23g)' opacity='.45'/%3E%3C/svg%3E");
+}
+.tampon::before{content:"";position:absolute;inset:3px;border:1px solid currentColor;border-radius:3px}
+.tampon b{display:block;font-size:clamp(14px,2.6vw,19px);line-height:1.15}
+.tampon span{display:block;font-size:8.5px;letter-spacing:.28em;margin-top:4px;font-weight:500}
+.tampon.frappe{animation:frappe .5s cubic-bezier(.2,1.6,.35,1) both;animation-delay:.85s}
+@keyframes frappe{
+  0%{opacity:0;transform:rotate(-8deg) scale(2.3)}
+  62%{opacity:1;transform:rotate(-8deg) scale(.94)}
+  80%{transform:rotate(-8deg) scale(1.04)}
+  100%{opacity:1;transform:rotate(-8deg) scale(1)}
+}
+.tampon.n0{color:var(--rouge)} .tampon.n1{color:var(--orange)}
+.tampon.n2{color:var(--ambre)} .tampon.n3{color:var(--vert)}
+/* Secousse de la zone verdict au moment où le tampon frappe */
+.verdict-zone.impact{animation:secousse .4s ease-out 1.14s both}
+@keyframes secousse{0%,100%{transform:none}35%{transform:translateY(2px) rotate(-.35deg)}70%{transform:translateY(-1px)}}
+
+.bloc-titre{
+  margin-top:36px;font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--sourdine);display:flex;align-items:center;gap:12px;
+}
+.bloc-titre::before{content:"";width:9px;height:9px;background:var(--accent);flex:none}
+.bloc-titre::after{content:"";flex:1;height:1px;background:var(--ligne)}
+.barres{margin-top:18px;display:grid;gap:14px}
+.barre-ligne{display:grid;grid-template-columns:112px 1fr 38px;align-items:center;gap:12px}
+.barre-ligne label{font-family:var(--f-mono);font-size:11px;letter-spacing:.03em;color:var(--sourdine)}
+.barre-piste{height:14px;border-radius:99px;background:var(--paper-2);border:1px solid var(--ligne);position:relative;overflow:hidden}
+.barre-rempli{position:absolute;inset:0 auto 0 0;width:0;border-radius:99px;transition:width 1s cubic-bezier(.3,.9,.3,1)}
+.barre-rempli.r0{background:repeating-linear-gradient(45deg,var(--rouge),var(--rouge) 5px,#A33425 5px,#A33425 10px)}
+.barre-rempli.r1{background:var(--ambre)}
+.barre-rempli.r2{background:var(--vert)}
+.barre-ligne output{font-family:var(--f-mono);font-size:11px;text-align:right}
+.constats{margin-top:15px;display:grid}
+.constat{display:flex;gap:12px;padding:13px 2px;border-bottom:1px solid var(--ligne);font-size:14.5px;line-height:1.55;color:var(--sourdine)}
+.constat::before{content:"";width:9px;height:9px;border-radius:3px;background:var(--rouge);flex:none;margin-top:6px}
+.constat.ok{color:var(--ink)}
+.constat.ok::before{background:var(--vert)}
+
+.plan-zone{position:relative;margin-top:18px;border:1.5px solid var(--ligne-forte);border-radius:var(--r-m);overflow:hidden}
+.plan-contenu{padding:24px 24px 8px;transition:filter .5s ease,opacity .5s ease}
+.plan-zone.verrouille .plan-contenu{filter:blur(8px);opacity:.5;pointer-events:none;user-select:none}
+.plan-item{display:flex;gap:14px;align-items:flex-start;padding-bottom:19px;margin-bottom:19px;border-bottom:1px solid var(--ligne)}
+.plan-item:last-child{border-bottom:none}
+.plan-item .horizon{
+  font-family:var(--f-mono);font-size:10.5px;font-weight:600;letter-spacing:.08em;flex:none;
+  border-radius:999px;padding:6px 11px;background:var(--ink);color:var(--accent);margin-top:2px;
+}
+.plan-item p{font-size:14.5px;line-height:1.6;color:var(--sourdine)}
+.plan-item p b{display:block;font-family:var(--f-display);font-weight:750;font-size:16.5px;letter-spacing:-.012em;color:var(--ink);margin-bottom:4px}
+.verrou{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;
+  background:linear-gradient(180deg,rgba(250,248,241,.3),rgba(250,248,241,.88));
+}
+.verrou-carte{background:var(--paper-3);border:1.5px solid var(--ink);border-radius:var(--r-m);box-shadow:var(--ombre-m);padding:28px;max-width:440px;width:100%}
+.verrou-carte h4{font-family:var(--f-display);font-weight:780;font-size:22px;line-height:1.08;letter-spacing:-.02em}
+.verrou-carte > p{margin-top:9px;font-size:13.5px;line-height:1.55;color:var(--sourdine)}
+.verrou-label{display:block;margin-top:18px;font-size:12.5px;font-weight:700;color:var(--ink)}
+.verrou-label small{font-weight:500;color:var(--sourdine);font-size:11.5px}
+#champ-secteur{
+  width:100%;margin-top:8px;appearance:none;-webkit-appearance:none;cursor:pointer;
+  border:1.5px solid var(--ligne-forte);border-radius:14px;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230B2B30' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 16px center;
+  padding:13px 42px 13px 16px;font-family:var(--f-body);font-size:14.5px;color:var(--ink);
+}
+#champ-secteur:focus{outline:none;border-color:var(--ink)}
+.champ-email{display:flex;margin-top:12px;border:1.5px solid var(--ligne-forte);border-radius:999px;overflow:hidden;background:#fff}
+.champ-email:focus-within{border-color:var(--ink)}
+.champ-email input{
+  flex:1;min-width:0;border:none;background:transparent;padding:14px 18px;
+  font-family:var(--f-body);font-size:15px;color:var(--ink);outline:none;
+}
+.champ-email input::placeholder{color:#9FACAB}
+.champ-email button{
+  border:none;background:var(--accent);color:var(--ink);margin:4px;border-radius:999px;
+  font-family:var(--f-body);font-weight:800;font-size:14px;padding:0 21px;cursor:pointer;white-space:nowrap;
+  transition:background .15s ease;
+}
+.champ-email button:hover{background:var(--accent-2)}
+.champ-email button:disabled{opacity:.6;cursor:wait}
+.piege{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+.verrou-rgpd{margin-top:11px;font-size:11px;line-height:1.5;color:#8C9A99}
+.erreur-email{margin-top:9px;font-family:var(--f-mono);font-size:11.5px;color:var(--rouge);display:none}
+.succes-email{
+  margin-top:15px;display:none;align-items:center;gap:9px;
+  font-size:13px;font-weight:700;color:var(--ink);
+  background:var(--accent-doux);border:1px solid rgba(232,156,15,.45);border-radius:999px;padding:11px 17px;
+}
+.resultats-actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.lien-discret{
+  background:none;border:none;cursor:pointer;font-family:var(--f-mono);font-size:11.5px;
+  letter-spacing:.05em;color:var(--sourdine);border-bottom:1.5px solid var(--ligne);padding:2px 0;
+}
+.lien-discret:hover{color:var(--ink);border-bottom-color:var(--ink)}
+
+/* ════════════════════ OFFRES ════════════════════ */
+.tarifs{margin-top:clamp(40px,5vw,58px);display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.tarif{
+  background:var(--paper);color:var(--ink);border-radius:var(--r-m);
+  padding:32px 28px;display:flex;flex-direction:column;position:relative;
+  border:1.5px solid transparent;transition:transform .22s ease;
+}
+.tarif:hover{transform:translateY(-5px)}
+.tarif.phare{border-color:var(--accent);box-shadow:0 0 0 5px rgba(255,181,46,.18), 0 36px 70px -28px rgba(0,0,0,.6);transform:translateY(-12px)}
+.tarif.phare:hover{transform:translateY(-16px)}
+.tarif-badge{
+  position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+  font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  background:var(--accent);color:var(--ink);border-radius:999px;padding:7px 16px;white-space:nowrap;
+}
+.tarif h3{font-family:var(--f-display);font-weight:780;font-size:23px;letter-spacing:-.018em}
+.tarif .usage{margin-top:5px;font-size:13.5px;color:var(--sourdine)}
+.tarif .prix{margin-top:18px;display:flex;align-items:baseline;gap:8px}
+.tarif .prix b{font-family:var(--f-display);font-weight:800;font-size:44px;letter-spacing:-.04em;line-height:.9}
+.tarif .prix span{font-family:var(--f-mono);font-size:11px;color:var(--sourdine)}
+.tarif ul{list-style:none;margin-top:22px;padding-top:22px;border-top:1.5px solid var(--ligne);display:grid;gap:12px;flex:1}
+.tarif li{font-size:14.5px;line-height:1.5;color:var(--sourdine);display:flex;gap:11px}
+.tarif li i{
+  flex:none;width:19px;height:19px;border-radius:6px;background:var(--accent);margin-top:2px;
+  display:grid;place-items:center;font-style:normal;
+}
+.tarif li i svg{display:block}
+.tarif .btn{width:100%;margin-top:26px}
+.tarif-note{margin-top:11px;font-family:var(--f-mono);font-size:10.5px;color:var(--sourdine);text-align:center;letter-spacing:.02em}
+
+/* ════════════════════ À PROPOS ════════════════════ */
+.apropos{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(34px,6vw,76px);align-items:center;margin-top:clamp(32px,4vw,48px)}
+.portrait-zone{position:relative;justify-self:center;--taille:min(320px,72vw);width:var(--taille);height:var(--taille)}
+.portrait{
+  width:var(--taille);height:var(--taille);border-radius:50%;object-fit:cover;
+  border:7px solid var(--paper-3);box-shadow:var(--ombre-l);position:relative;z-index:1;
+}
+.portrait-arc{position:absolute;inset:-17px;z-index:0;animation:tourner 26s linear infinite}
+.portrait-arc svg{width:100%;height:100%;display:block}
+@keyframes tourner{to{transform:rotate(360deg)}}
+.portrait-puce{
+  position:absolute;z-index:2;bottom:10px;right:-6px;
+  background:var(--ink);color:var(--paper);border-radius:999px;padding:11px 17px;
+  font-size:12px;font-weight:650;box-shadow:var(--ombre-m);display:flex;align-items:center;gap:8px;
+}
+.apropos-texte h3{font-family:var(--f-display);font-weight:780;font-size:clamp(26px,3.8vw,38px);line-height:1.04;letter-spacing:-.025em;margin-top:14px}
+.apropos-texte > p{margin-top:15px;font-size:15.5px;line-height:1.72;color:var(--sourdine)}
+.apropos-texte > p strong{color:var(--ink);font-weight:700}
+.citation{
+  margin-top:22px;position:relative;padding:18px 22px;
+  background:var(--paper-3);border:1.5px solid var(--ligne);border-radius:var(--r-m);
+  font-size:16.5px;line-height:1.6;font-weight:550;
+}
+.citation::before{
+  content:"";position:absolute;left:-1.5px;top:14px;bottom:14px;width:5px;border-radius:5px;background:var(--accent);
+}
+.apropos-liens{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}
+.lien-pilule{
+  display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  font-size:13.5px;font-weight:650;color:var(--ink);
+  border:1.5px solid var(--ligne-forte);border-radius:999px;padding:10px 18px;background:var(--paper-3);
+  transition:border-color .15s ease, transform .15s ease, background .15s ease;
+}
+.lien-pilule:hover{border-color:var(--ink);transform:translateY(-2px);background:#fff}
+
+/* ════════════════════ FAQ ════════════════════ */
+.faq-fond{background:var(--paper-2);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
+.faq-liste{max-width:780px;margin:clamp(32px,4vw,48px) auto 0;display:grid;gap:13px}
+.faq-item{
+  background:var(--paper-3);border:1.5px solid var(--ligne);border-radius:var(--r-m);
+  overflow:hidden;transition:border-color .2s ease;
+}
+.faq-item[open]{border-color:var(--ink)}
+.faq-item summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;
+  padding:20px 24px;font-family:var(--f-display);font-weight:720;font-size:17.5px;line-height:1.25;letter-spacing:-.012em;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary em{
+  font-style:normal;font-family:var(--f-mono);font-weight:500;font-size:10.5px;letter-spacing:.08em;
+  color:var(--sourdine);flex:none;width:38px;
+}
+.faq-item summary span{flex:1}
+.faq-item summary i{
+  flex:none;width:30px;height:30px;border-radius:999px;border:1.5px solid var(--ligne-forte);
+  display:grid;place-items:center;font-style:normal;font-weight:500;font-size:18px;color:var(--sourdine);
+  transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+}
+.faq-item[open] summary i{transform:rotate(45deg);background:var(--accent);color:var(--ink);border-color:var(--accent-2)}
+.faq-item .reponse{padding:0 24px 22px 78px;font-size:14.5px;line-height:1.7;color:var(--sourdine)}
+.faq-item .reponse strong{color:var(--ink);font-weight:700}
+
+/* ════════════════════ CTA FINALE ════════════════════ */
+.cta-finale{text-align:center;overflow:hidden}
+.cta-finale h2{
+  font-family:var(--f-display);font-weight:800;font-size:clamp(32px,5.6vw,56px);
+  line-height:1;letter-spacing:-.032em;
+}
+.cta-finale .lede{font-size:17px;margin-left:auto;margin-right:auto}
+.cta-finale .btn{margin-top:32px}
+.cta-finale .micro{margin-top:18px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;color:var(--sourdine-clair)}
+
+/* ——— CTA collant mobile ——— */
+.cta-mobile{display:none}
+@media (max-width:820px){
+  .cta-mobile{
+    display:block;position:fixed;left:0;right:0;bottom:0;z-index:80;
+    padding:10px clamp(14px,4vw,24px) calc(10px + env(safe-area-inset-bottom,0px));
+    background:rgba(240,236,225,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-top:1px solid var(--ligne);transform:translateY(110%);transition:transform .3s ease;
+  }
+  .cta-mobile .btn{width:100%}
+  body.cta-visible .cta-mobile{transform:none}
+}
+
+/* ——— Modale de réservation des offres ——— */
+.dialogue-offre{
+  border:1.5px solid var(--ink);border-radius:var(--r-m);box-shadow:var(--ombre-l);
+  background:var(--paper-3);color:var(--ink);padding:30px 28px;
+  width:min(470px,calc(100vw - 36px));
+}
+.dialogue-offre[open]{animation:apparition .3s ease}
+.dialogue-offre::backdrop{background:rgba(7,31,35,.55);backdrop-filter:blur(3px)}
+.dialogue-offre form{position:relative}
+.dialogue-offre h4{font-family:var(--f-display);font-weight:780;font-size:23px;line-height:1.1;letter-spacing:-.02em;margin-top:14px;padding-right:40px}
+.dialogue-offre .intro{margin-top:9px;font-size:13.5px;line-height:1.55;color:var(--sourdine)}
+.dialogue-fermer{
+  position:absolute;top:-6px;right:-4px;appearance:none;cursor:pointer;
+  background:var(--paper);border:1.5px solid var(--ligne-forte);border-radius:999px;
+  width:36px;height:36px;display:grid;place-items:center;font-size:19px;line-height:1;color:var(--sourdine);
+}
+.dialogue-fermer:hover{color:var(--ink);border-color:var(--ink)}
+.champ-texte{
+  width:100%;margin-top:8px;border:1.5px solid var(--ligne-forte);border-radius:14px;
+  background:#fff;padding:13px 16px;font-family:var(--f-body);font-size:14.5px;color:var(--ink);
+}
+.champ-texte:focus{outline:none;border-color:var(--ink)}
+.dialogue-alt{margin-top:13px;font-size:12px;color:var(--sourdine)}
+.dialogue-alt a{color:var(--ink)}
+
+/* ════════════════════ PIED DE PAGE ════════════════════ */
+.pied{background:var(--ink-2);color:var(--sourdine-clair);position:relative}
+.pied::before{content:"";position:absolute;inset:0;background:var(--grain);pointer-events:none}
+.pied > *{position:relative}
+.pied-int{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px;padding:56px 0 42px}
+.pied h4{font-family:var(--f-mono);font-size:10.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(240,236,225,.45);margin-bottom:17px}
+.pied p{font-size:13.5px;line-height:1.7}
+.pied a{color:rgba(240,236,225,.85);text-decoration:none;border-bottom:1.5px solid transparent;transition:border-color .15s ease}
+.pied a:hover{border-bottom-color:var(--accent)}
+.pied ul{list-style:none;display:grid;gap:11px;font-size:13.5px}
+.pied .logo b{color:var(--paper)}
+.pied .logo small{color:rgba(240,236,225,.45)}
+.pied-legal{
+  border-top:1px solid rgba(240,236,225,.14);padding:22px 0 28px;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.03em;line-height:1.8;color:rgba(240,236,225,.4);
+}
+
+/* ——— Révélation au défilement ——— */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease, transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.grille-3 .reveal:nth-child(2),.etapes .reveal:nth-child(2),.tarifs .reveal:nth-child(2){transition-delay:.1s}
+.grille-3 .reveal:nth-child(3),.etapes .reveal:nth-child(3),.tarifs .reveal:nth-child(3){transition-delay:.2s}
+
+/* ════════════════════ RESPONSIVE ════════════════════ */
+@media (max-width:980px){
+  .heros-int{grid-template-columns:1fr;gap:52px}
+  .apercu-zone{order:2}
+  .grille-3,.etapes,.tarifs{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}
+  .tarif.phare{transform:none}
+  .tarif.phare:hover{transform:translateY(-4px)}
+  .apropos{grid-template-columns:1fr;gap:44px}
+  .chiffres-int{grid-template-columns:1fr 1fr}
+  .chiffre:nth-child(3){border-left:none}
+  .chiffre{border-top:1px solid var(--ligne)}
+  .chiffre:nth-child(-n+2){border-top:none}
+}
+@media (max-width:820px){
+  .nav-liens{display:none}
+  .burger{display:flex}
+  .nav-cta .lbl-long{display:none}
+  .nav-cta .lbl-court{display:inline}
+  .logo small{display:none}
+  .logo b{font-size:19px}
+}
+@media (max-width:640px){
+  .piliers-liste{grid-template-columns:1fr}
+  .barre-ligne{grid-template-columns:88px 1fr 34px}
+  .tampon{position:static;display:inline-block;margin-top:18px;transform:rotate(-3deg)}
+  .tampon.frappe{animation-name:frappe-m}
+  @keyframes frappe-m{0%{opacity:0;transform:rotate(-3deg) scale(1.8)}70%{opacity:1;transform:rotate(-3deg) scale(.96)}100%{opacity:1;transform:rotate(-3deg) scale(1)}}
+  .pied-int{grid-template-columns:1fr;gap:32px}
+  .heros-actions .btn,.diag-demarrer .btn{width:100%}
+  .faq-item .reponse{padding-left:24px}
+  .feuille-plan{right:-6px;width:188px}
+}
+
+/* ——— Mouvement réduit ——— */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .reveal,.anim{opacity:1;transform:none}
+  mark,#tw{background-size:100% 74%}
+  .tampon.frappe{opacity:1}
+  .curseur{display:none}
+  .ticker-piste{animation:none!important}
+}
+
+/* ——— Impression : seul le relevé sort ——— */
+@media print{
+  body{background:#fff}
+  .nav,.nav-mobile,.heros,.ticker,.chiffres,#pourquoi,#methode,.diag-tete,.diag-accueil,#ecran-quiz,
+  .verrou,.resultats-actions,#offres,#apropos,#faq,.cta-finale,.pied,.tete-diag,.astuce,.cta-mobile,.dialogue-offre{display:none!important}
+  .section{padding:0}
+  .diag-cadre{box-shadow:none;border:none;max-width:100%;margin-bottom:0}
+  .verdict-zone.impact{animation:none}
+  #ecran-resultats{display:block!important}
+  .plan-zone.verrouille .plan-contenu{filter:none;opacity:1}
+  .tampon.frappe{animation:none;opacity:1}
+  mark{background-size:100% 74%}
+}
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail" data-bg-color="#0B2B30">
+  <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(48,48) scale(0.4)">
+      <rect width="160" height="160" rx="34" fill="#0B2B30"></rect>
+      <g opacity=".42" stroke="#F0ECE1" stroke-width="1.6">
+        <path d="M38 38H122M38 64H122M38 90H122M38 116H122"></path>
+        <path d="M38 38V116M64 38V116M90 38V116M116 38V116"></path>
+      </g>
+      <path d="M99 51C91 43 78 40 66 45C51 51 43 68 48 84C53 101 70 110 87 105C93 103 98 100 102 96" fill="none" stroke="#F0ECE1" stroke-width="13" stroke-linecap="round"></path>
+      <rect x="91" y="36" width="31" height="31" rx="7" fill="#FFB52E"></rect>
+      <path d="M100 52L106 58L116 47" fill="none" stroke="#0B2B30" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      <circle cx="51" cy="110" r="7" fill="#C2402F"></circle>
+      <circle cx="78" cy="110" r="7" fill="#FFB52E"></circle>
+      <circle cx="105" cy="110" r="7" fill="#2E8C66"></circle>
+    </g>
+  </svg>
+</template>
+
+<!-- ════════════════════ NAVIGATION ════════════════════ -->
+<header class="nav" id="nav">
+  <div class="conteneur nav-int">
+    <a class="logo" href="#" aria-label="CADRE — retour en haut">
+      <span class="logo-cadre"><svg viewBox="0 0 160 160" aria-hidden="true"><rect width="160" height="160" rx="34" fill="#0B2B30"></rect><g opacity=".42" stroke="#F0ECE1" stroke-width="1.6"><path d="M38 38H122M38 64H122M38 90H122M38 116H122"></path><path d="M38 38V116M64 38V116M90 38V116M116 38V116"></path></g><path d="M99 51C91 43 78 40 66 45C51 51 43 68 48 84C53 101 70 110 87 105C93 103 98 100 102 96" fill="none" stroke="#F0ECE1" stroke-width="13" stroke-linecap="round"></path><rect x="91" y="36" width="31" height="31" rx="7" fill="#FFB52E"></rect><path d="M100 52L106 58L116 47" fill="none" stroke="#0B2B30" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="51" cy="110" r="7" fill="#C2402F"></circle><circle cx="78" cy="110" r="7" fill="#FFB52E"></circle><circle cx="105" cy="110" r="7" fill="#2E8C66"></circle></svg></span>
+      <span><b>CADRE</b><small>SCORE · RISQUES · PLAN D'ACTION</small></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-liens">
+        <li><a href="#pourquoi">Pourquoi</a></li>
+        <li><a href="#methode">La méthode</a></li>
+        <li><a href="#diagnostic">Diagnostic</a></li>
+        <li><a href="#offres">Offres</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primaire" href="#diagnostic" data-demarrer><span class="lbl-long">Faire le diagnostic</span><span class="lbl-court">Diagnostic</span></a>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#pourquoi">Pourquoi CADRE</a>
+  <a href="#methode">La méthode</a>
+  <a href="#diagnostic">Le diagnostic gratuit</a>
+  <a href="#offres">Offres &amp; tarifs</a>
+  <a href="#apropos">À propos</a>
+  <a href="#faq">FAQ</a>
+</div>
+
+<main>
+
+<!-- ════════════════════ HÉROS ════════════════════ -->
+<section class="heros">
+  <div class="conteneur heros-int">
+    <div>
+      <span class="badge-loi anim d1"><i></i>OBLIGATION LÉGALE DEPUIS FÉVRIER 2025 — FORMER VOS ÉQUIPES À L'IA</span>
+      <h1 aria-label="L'IA est déjà dans votre entreprise. Qui la pilote ?">
+        <span class="l1 anim d2" aria-hidden="true">L'IA est déjà dans votre entreprise.</span>
+        <span class="l2 anim d3" aria-hidden="true"><span id="tw"></span><span class="curseur"></span></span>
+      </h1>
+      <p class="lede anim d4">CADRE est le diagnostic de gouvernance IA conçu pour les PME&nbsp;: <strong>15 questions, 5 minutes</strong>, et vous obtenez votre score sur 30, vos risques prioritaires et un plan d'action 30·60·90 jours. <strong>Gratuit, sans inscription.</strong></p>
+      <div class="heros-actions anim d5">
+        <a class="btn btn-primaire btn-large" href="#diagnostic" data-demarrer>Lancer le diagnostic gratuit
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-contour btn-large" href="#offres">Découvrir les offres</a>
+      </div>
+      <div class="heros-garanties anim d5">
+        <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E89C0F" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg>Sans création de compte</span>
+        <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E89C0F" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg>Réponses stockées dans votre navigateur</span>
+        <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E89C0F" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg>Résultat immédiat</span>
+        <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E89C0F" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg>Né de 30+ accompagnements sur le terrain</span>
+      </div>
+    </div>
+
+    <div class="apercu-zone anim d4" aria-hidden="true">
+      <div class="feuille-plan">
+        <small>PLAN D'ACTION</small>
+        <div class="pastilles"><span class="pastille">J+30</span><span class="pastille">J+60</span><span class="pastille">J+90</span></div>
+      </div>
+      <div class="apercu">
+        <span class="scotch"></span>
+        <div class="apercu-tete">
+          <small>RELEVÉ DE DIAGNOSTIC</small>
+          <span class="points"><i></i><i></i><i></i></span>
+        </div>
+        <div class="apercu-score"><b>17</b><span>/ 30</span></div>
+        <div class="mini-tampon">FRAGILE</div>
+        <div class="apercu-barres">
+          <div class="apercu-barre"><label>Visibilité</label><span class="apercu-piste"><i style="width:33%;background:repeating-linear-gradient(45deg,#C2402F,#C2402F 5px,#A33425 5px,#A33425 10px)"></i></span><output>2/6</output></div>
+          <div class="apercu-barre"><label>Données</label><span class="apercu-piste"><i style="width:66%;background:#C28F2C"></i></span><output>4/6</output></div>
+          <div class="apercu-barre"><label>AI Act</label><span class="apercu-piste"><i style="width:50%;background:#C28F2C"></i></span><output>3/6</output></div>
+          <div class="apercu-barre"><label>Pilotage</label><span class="apercu-piste"><i style="width:83%;background:#2E8C66"></i></span><output>5/6</output></div>
+        </div>
+        <p class="apercu-constat">Des données professionnelles transitent sans doute par des comptes IA personnels gratuits.</p>
+      </div>
+      <p class="apercu-legende">EXEMPLE DE RELEVÉ — LE VÔTRE EN 5 MINUTES</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ BANDEAU DÉFILANT ════════════════════ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-piste">
+    <span>SHADOW IA</span><span>LOI EUROPÉENNE SUR L'IA</span><span>DONNÉES CLIENTS</span><span>CHARTE INTERNE</span><span>REGISTRE DES USAGES</span><span>FORMATION DES ÉQUIPES</span><span>RGPD</span><span>NIVEAUX DE RISQUE</span>
+    <span>SHADOW IA</span><span>LOI EUROPÉENNE SUR L'IA</span><span>DONNÉES CLIENTS</span><span>CHARTE INTERNE</span><span>REGISTRE DES USAGES</span><span>FORMATION DES ÉQUIPES</span><span>RGPD</span><span>NIVEAUX DE RISQUE</span>
+  </div>
+</div>
+
+<!-- ════════════════════ CHIFFRES ════════════════════ -->
+<div class="chiffres">
+  <div class="conteneur chiffres-int">
+    <div class="chiffre"><b>100+</b><span>professionnels formés</span></div>
+    <div class="chiffre"><b>30+</b><span>organisations accompagnées</span></div>
+    <div class="chiffre"><b>15</b><span>questions, zéro jargon</span></div>
+    <div class="chiffre"><b>5 min</b><span>pour votre score</span></div>
+  </div>
+</div>
+
+<!-- ════════════════════ POURQUOI ════════════════════ -->
+<section class="section fond-ink" id="pourquoi">
+  <div class="conteneur">
+    <div class="tete-section reveal">
+      <span class="eyebrow">Le constat</span>
+      <h2 class="titre-section">Trois angles morts, un même résultat&nbsp;: vous êtes <mark>exposé</mark>.</h2>
+      <p class="lede">Dans la plupart des PME, l'IA s'est installée plus vite que les règles. Voici ce que nous retrouvons sur le terrain, entreprise après entreprise.</p>
+    </div>
+    <div class="grille-3">
+      <article class="carte alerte reveal">
+        <div class="carte-icone">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg>
+        </div>
+        <h3>Le shadow IA s'installe</h3>
+        <p>Vos équipes utilisent déjà ChatGPT, Gemini ou Copilot — souvent sur des <strong>comptes personnels gratuits</strong>, sans validation ni traçabilité. Ce que vous ne voyez pas, vous ne pouvez ni l'encadrer, ni le valoriser.</p>
+      </article>
+      <article class="carte reveal">
+        <div class="carte-icone">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+        </div>
+        <h3>Vos données s'échappent</h3>
+        <p>Fichiers clients, contrats, données RH&nbsp;: saisis dans un outil grand public mal paramétré, ils peuvent <strong>servir à entraîner des modèles externes</strong>. Et il n'existe aucun bouton «&nbsp;revenir en arrière&nbsp;».</p>
+      </article>
+      <article class="carte reveal">
+        <div class="carte-icone">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6c0 1.7 1.3 3 3 3s3-1.3 3-3z"/><path d="M19 7l-3 6c0 1.7 1.3 3 3 3s3-1.3 3-3z"/><path d="M8 21h8"/></svg>
+        </div>
+        <h3>La loi est déjà là</h3>
+        <p>Depuis février 2025, la <strong>loi européenne sur l'IA</strong> impose une première obligation à toute entreprise qui utilise l'IA&nbsp;: <strong>former ses équipes à son bon usage</strong>. Pas dans deux ans. Maintenant.</p>
+        <p>Les autorités pourront contrôler et sanctionner <strong>à partir d'août 2026</strong>. Ce qui se met en place aujourd'hui ne se rattrape pas à la dernière minute.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ MÉTHODE ════════════════════ -->
+<section class="section" id="methode">
+  <div class="conteneur">
+    <div class="tete-section reveal">
+      <span class="eyebrow">La méthode</span>
+      <h2 class="titre-section">Du flou au <mark>plan d'action</mark>, en trois temps.</h2>
+      <p class="lede">CADRE transforme une inquiétude diffuse — «&nbsp;est-ce qu'on est en règle&nbsp;?&nbsp;» — en une feuille de route concrète.</p>
+    </div>
+    <div class="etapes">
+      <div class="etape reveal">
+        <span class="etape-num" aria-hidden="true">01</span>
+        <h3>Répondez</h3>
+        <p><b>15 questions fermées</b> sur 5 piliers&nbsp;: visibilité des usages, règles internes, données, conformité, pilotage. Aucun jargon, 5 minutes chrono.</p>
+      </div>
+      <div class="etape reveal">
+        <span class="etape-num" aria-hidden="true">02</span>
+        <h3>Lisez votre relevé</h3>
+        <p>Un <b>score sur 30</b>, un verdict clair, le détail pilier par pilier et vos constats prioritaires — ce qui doit être traité en premier.</p>
+      </div>
+      <div class="etape reveal">
+        <span class="etape-num" aria-hidden="true">03</span>
+        <h3>Passez à l'action</h3>
+        <p>Un <b>plan 30·60·90 jours</b> adapté à vos points faibles. Et pour aller vite&nbsp;: le Pack Conformité met vos documents en place avec vous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ DIAGNOSTIC ════════════════════ -->
+<section class="section" id="diagnostic" style="padding-top:0">
+  <div class="conteneur">
+    <div class="tete-section tete-diag reveal">
+      <span class="eyebrow">Le diagnostic</span>
+      <h2 class="titre-section">Votre relevé en <mark>5 minutes</mark>.</h2>
+    </div>
+
+    <div class="diag-cadre">
+      <div class="diag-tete">
+        <span class="points"><i></i><i></i><i></i></span>
+        <small>CADRE · DIAGNOSTIC DE GOUVERNANCE IA</small>
+      </div>
+      <div class="diag-corps">
+
+        <!-- — Écran accueil — -->
+        <div class="ecran actif diag-accueil" id="ecran-depart">
+          <h3>15 questions. Aucune bonne réponse à deviner, juste la réalité de votre entreprise.</h3>
+          <p>Répondez pour l'entreprise telle qu'elle est aujourd'hui — pas telle que vous aimeriez qu'elle soit. C'est la condition d'un relevé utile.</p>
+          <div class="piliers-liste">
+            <div class="pilier-puce"><i>I</i>Visibilité des usages &amp; shadow IA</div>
+            <div class="pilier-puce"><i>II</i>Règles internes &amp; charte</div>
+            <div class="pilier-puce"><i>III</i>Protection des données &amp; RGPD</div>
+            <div class="pilier-puce"><i>IV</i>Conformité — loi européenne sur l'IA</div>
+            <div class="pilier-puce"><i>V</i>Pilotage &amp; compétences</div>
+            <div class="pilier-puce libre">Score sur 30 + plan d'action</div>
+          </div>
+          <div class="diag-demarrer">
+            <button class="btn btn-primaire btn-large" id="btn-commencer">Commencer
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <button class="btn btn-contour" id="btn-reprendre" hidden>Reprendre où j'en étais</button>
+            <span class="note-confiance">Vos réponses restent dans votre navigateur.</span>
+          </div>
+        </div>
+
+        <!-- — Écran questionnaire — -->
+        <div class="ecran" id="ecran-quiz" aria-live="polite">
+          <div class="quiz-tete">
+            <span class="compteur">QUESTION <b id="num-question">01</b> / 15</span>
+            <span class="compteur"><b id="pct-progres">0%</b></span>
+          </div>
+          <div class="barre-progres"><i id="progres"></i></div>
+          <p class="pilier-tag" id="tag-pilier"></p>
+          <h3 class="question" id="texte-question"></h3>
+          <div class="options" id="options" role="group" aria-label="Réponses possibles"></div>
+          <div class="quiz-pied">
+            <button class="lien-retour" id="btn-precedent">← Question précédente</button>
+            <span class="astuce">Astuce&nbsp;: touches 1 · 2 · 3</span>
+          </div>
+        </div>
+
+        <!-- — Écran résultats — -->
+        <div class="ecran" id="ecran-resultats">
+          <span class="eyebrow">Votre relevé · <span id="date-diag"></span></span>
+          <div class="verdict-zone">
+            <p class="score-label">Score de gouvernance IA</p>
+            <p class="score-grand"><span id="score-anime">0</span><small>&nbsp;/ 30</small></p>
+            <p class="verdict-texte" id="verdict-texte"></p>
+            <div class="tampon" id="tampon" role="img">
+              <b id="tampon-niveau"></b>
+              <span>CADRE · EDS</span>
+            </div>
+          </div>
+
+          <p class="bloc-titre">Détail par pilier</p>
+          <div class="barres" id="barres"></div>
+
+          <p class="bloc-titre">Constats prioritaires</p>
+          <div class="constats" id="constats"></div>
+
+          <p class="bloc-titre">Votre plan d'action 30 · 60 · 90 jours</p>
+          <div class="plan-zone verrouille" id="plan-zone">
+            <div class="plan-contenu" id="plan-contenu" aria-hidden="true"></div>
+            <div class="verrou" id="verrou">
+              <form class="verrou-carte" id="form-email" novalidate>
+                <h4>Débloquez votre plan d'action</h4>
+                <p>Recevez aussi ce relevé par email, avec les premières étapes adaptées à vos points faibles.</p>
+                <label class="verrou-label" for="champ-secteur">Votre secteur d'activité <small>(optionnel — pour un plan plus pertinent)</small></label>
+                <select id="champ-secteur">
+                  <option value="" selected>— Sélectionnez votre secteur —</option>
+                  <option>Commerce / Artisanat</option>
+                  <option>Industrie</option>
+                  <option>Services aux entreprises</option>
+                  <option>BTP / Construction</option>
+                  <option>Santé / Médico-social</option>
+                  <option>Hôtellerie / Restauration</option>
+                  <option>Profession libérale</option>
+                  <option>Collectivité / Secteur public</option>
+                  <option>Association</option>
+                  <option>Autre</option>
+                </select>
+                <div class="champ-email">
+                  <input type="email" id="champ-email" placeholder="prenom@entreprise.fr" autocomplete="email" inputmode="email" aria-label="Votre adresse email professionnelle">
+                  <button type="submit" id="btn-email">Débloquer</button>
+                </div>
+                <input type="text" class="piege" name="site" id="piege" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <p class="erreur-email" id="erreur-email">Vérifiez le format de l'adresse email.</p>
+                <p class="verrou-rgpd">En validant, vous acceptez d'être recontacté par Escale Digitale Solutions au sujet de votre diagnostic. Aucune donnée n'est revendue. Désinscription en un email.</p>
+              </form>
+            </div>
+          </div>
+          <p class="succes-email" id="succes-email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg>
+            Plan débloqué — votre relevé arrive par email.
+          </p>
+
+          <div class="resultats-actions">
+            <a class="btn btn-primaire" href="#offres">Mettre mon entreprise en règle →</a>
+            <button class="lien-discret" id="btn-imprimer">Imprimer / enregistrer en PDF</button>
+            <button class="lien-discret" id="btn-refaire">Refaire le diagnostic</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ OFFRES ════════════════════ -->
+<section class="section fond-ink" id="offres">
+  <div class="conteneur">
+    <div class="tete-section reveal">
+      <span class="eyebrow">Offres &amp; tarifs</span>
+      <h2 class="titre-section">Du diagnostic gratuit au <mark>pilotage continu</mark>.</h2>
+      <p class="lede">Trois niveaux, une même logique&nbsp;: savoir où vous en êtes, vous mettre en règle, le rester.</p>
+    </div>
+    <div class="tarifs">
+      <div class="tarif reveal">
+        <h3>Diagnostic</h3>
+        <p class="usage">Pour savoir où vous en êtes</p>
+        <p class="prix"><b>0&nbsp;€</b><span>gratuit, sans inscription</span></p>
+        <ul>
+          <li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0B2B30" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg></i>Score de gouvernance sur 30</li>
+          <li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0B2B30" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg></i>Verdict + détail des 5 piliers</li>
+          <li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0B2B30" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg></i>Constats prioritaires</li>
+          <li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0B2B30" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg></i>Plan d'action 30·60·90 jours</li>
+          <li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0B2B30" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg></i>Relevé imprimable (PDF)</li>
+        </ul>
+        <a class="btn btn-contour" href="#diagnostic" data-demarrer>Faire le diagnostic</a>
+        <p class="tarif-note">Aucune carte bancaire demandée</p>
+      </div>
+
+      <div class="tarif phare reveal">
+        <span class="tarif-badge">Recommandé</span>
+        <h3>Pack Conformité</h3>
+        <p class="usage">Pour vous mettre en règle</p>
+        <p class="prix"><b>290&nbsp;€</b><span>HT · paiement unique</span></p>
+        <ul>
+          <li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0B2B30" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg></i>Charte IA personnalisée, prête à diffuser et à faire signer</li>
+          <li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0B2B30" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg></i>Registre des usages IA pré-structuré pour votre activité</li>
+          <li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0B2B30" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg></i>Classification de vos usages selon les niveaux de risque de l'AI Act</li>
+          <li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0B2B30" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg></i>Plan de formation de vos équipes (obligation légale 2025)</li>
+        </ul>
+        <a class="btn btn-primaire" id="btn-pack" href="#">Pré-commander le pack</a>
+        <p class="tarif-note">Pré-commande · lancement V1 — réponse sous 48 h ouvrées</p>
+      </div>
+
+      <div class="tarif reveal">
+        <h3>Pilotage</h3>
+        <p class="usage">Pour rester en règle</p>
+        <p class="prix"><b>39&nbsp;€</b><span>HT / mois · sans engagement</span></p>
+        <ul>
+          <li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0B2B30" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg></i>Cockpit de suivi&nbsp;: registre, incidents, indicateurs</li>
+          <li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0B2B30" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg></i>Veille réglementaire AI Act vulgarisée</li>
+          <li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0B2B30" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg></i>Mises à jour de vos documents quand les règles évoluent</li>
+        </ul>
+        <a class="btn btn-contour" id="btn-pilotage" href="#">Rejoindre la liste d'attente</a>
+        <p class="tarif-note">Disponible après le lancement du pack</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ À PROPOS ════════════════════ -->
+<section class="section" id="apropos">
+  <div class="conteneur">
+    <div class="tete-section reveal">
+      <span class="eyebrow">Qui est derrière CADRE</span>
+      <h2 class="titre-section">Un outil né <mark>du terrain</mark>.</h2>
+    </div>
+    <div class="apropos">
+      <div class="portrait-zone reveal">
+        <span class="portrait-arc" aria-hidden="true">
+          <svg viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="48.5" stroke="rgba(11,43,48,.22)" stroke-width="1" stroke-dasharray="3 6"/>
+            <path d="M50 1.5 A48.5 48.5 0 0 1 98.5 50" stroke="#FFB52E" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <img class="portrait" src="data:image/jpeg;base64,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" alt="Florian Rousseau, fondateur d'Escale Digitale Solutions" width="480" height="480" loading="lazy">
+        <span class="portrait-puce">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFB52E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11s-8-6-8-11a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Issoudun · Centre-Val de Loire
+        </span>
+      </div>
+      <div class="apropos-texte reveal">
+        <h3>Florian Rousseau, formateur et consultant IA, au plus près des PME.</h3>
+        <p>Fondateur d'<strong>Escale Digitale Solutions</strong>, Florian forme et accompagne les PME, collectivités et organisations locales sur l'intelligence artificielle — <strong>100&nbsp;% en présentiel</strong>, sur le terrain. Plus de <strong>100 professionnels formés dans plus de 30 organisations</strong>, et un rendez-vous mensuel de découverte de l'IA, ExplorIA.</p>
+        <p>CADRE est né de ses interventions, où les mêmes questions reviennent dans chaque entreprise&nbsp;: <em>qui utilise quoi, avec quelles données, et que dit la loi&nbsp;?</em> Plutôt que d'y répondre au cas par cas, Florian en a fait un outil que chaque dirigeant peut utiliser en cinq minutes — puis transformer en plan d'action.</p>
+        <p class="citation">«&nbsp;On ne pilote pas ce qu'on ne voit pas. CADRE commence par là&nbsp;: rendre visible ce que l'IA fait déjà dans votre entreprise.&nbsp;»</p>
+        <div class="apropos-liens">
+          <a class="lien-pilule" href="https://eds-formation.fr" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 5.9 4 9s-1.5 6.3-4 9c-2.5-2.7-4-5.9-4-9s1.5-6.3 4-9z"/></svg>
+            eds-formation.fr
+          </a>
+          <a class="lien-pilule" href="https://www.linkedin.com/in/escaledigitalesolutions/" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v14.5H.2V8zm7.4 0h4.4v2h.06c.61-1.16 2.1-2.38 4.33-2.38 4.63 0 5.49 3.05 5.49 7.02v7.86h-4.6v-6.97c0-1.66-.03-3.8-2.31-3.8-2.32 0-2.67 1.81-2.67 3.68v7.09H7.6V8z"/></svg>
+            LinkedIn
+          </a>
+          <a class="lien-pilule" href="/cdn-cgi/l/email-protection#b5d0c6d6d4d9d09bd1dcd2dcc1d4d9d09bc6dad9c0c1dcdadbc6f5d2d8d4dcd99bd6dad8">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>
+            Écrire à Florian
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FAQ ════════════════════ -->
+<section class="section faq-fond" id="faq">
+  <div class="conteneur">
+    <div class="tete-section reveal">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2 class="titre-section">Avant de vous <mark>lancer</mark>.</h2>
+    </div>
+    <div class="faq-liste">
+      <details class="faq-item">
+        <summary><em>Q.01</em><span>Le diagnostic est-il vraiment gratuit&nbsp;?</span><i>+</i></summary>
+        <p class="reponse">Oui, entièrement. Le score, le verdict, le détail par pilier et les constats s'affichent <strong>sans aucune inscription</strong>. Votre email n'est demandé que si vous souhaitez débloquer le plan d'action et recevoir votre relevé.</p>
+      </details>
+      <details class="faq-item">
+        <summary><em>Q.02</em><span>Où vont mes réponses&nbsp;?</span><i>+</i></summary>
+        <p class="reponse">Nulle part&nbsp;: elles sont <strong>stockées uniquement dans votre navigateur</strong> (vous pouvez les effacer à tout moment en refaisant le diagnostic). Seul votre email — et votre score, pour personnaliser la suite — est transmis si vous demandez le relevé. Aucune donnée n'est revendue.</p>
+      </details>
+      <details class="faq-item">
+        <summary><em>Q.03</em><span>Mon entreprise est-elle concernée par l'AI Act&nbsp;?</span><i>+</i></summary>
+        <p class="reponse">Dès qu'elle utilise un système d'IA dans un cadre professionnel — même un simple assistant génératif — elle entre dans le champ du règlement en tant que «&nbsp;déployeur&nbsp;». Le niveau d'obligations dépend des usages, mais <strong>l'article 4 (maîtrise de l'IA par les équipes) concerne la quasi-totalité des entreprises utilisatrices</strong>, quelle que soit leur taille. L'obligation court depuis février 2025&nbsp;; les autorités pourront contrôler et sanctionner à partir d'août 2026. Les manquements les plus graves au règlement exposent à des sanctions pouvant atteindre <strong>35&nbsp;M€ ou 7&nbsp;% du chiffre d'affaires mondial</strong>.</p>
+      </details>
+      <details class="faq-item">
+        <summary><em>Q.04</em><span>Que contient exactement le Pack Conformité&nbsp;?</span><i>+</i></summary>
+        <p class="reponse">Quatre livrables construits à partir de votre diagnostic&nbsp;: une <strong>charte IA personnalisée</strong> prête à faire signer, un <strong>registre des usages</strong> pré-structuré pour votre activité, la <strong>classification de vos usages</strong> selon les niveaux de risque de l'AI Act, et un <strong>plan de formation réglementaire de vos équipes</strong>. Le pack est actuellement en pré-commande&nbsp;: vous réservez, Florian vous recontacte sous 48&nbsp;h ouvrées.</p>
+      </details>
+      <details class="faq-item">
+        <summary><em>Q.05</em><span>Et si mon score est déjà bon&nbsp;?</span><i>+</i></summary>
+        <p class="reponse">Tant mieux — c'est plus rare qu'on ne le croit. Il vous restera deux chantiers&nbsp;: <strong>pouvoir le prouver</strong> (documents à jour, registre tenu, formations tracées) et <strong>le rester</strong> à mesure que la réglementation et les outils évoluent. C'est précisément le rôle de l'offre Pilotage.</p>
+      </details>
+      <details class="faq-item">
+        <summary><em>Q.06</em><span>Ce diagnostic remplace-t-il un conseil juridique&nbsp;?</span><i>+</i></summary>
+        <p class="reponse">Non. CADRE fournit un <strong>éclairage opérationnel</strong> pour structurer votre gouvernance IA et prioriser vos actions. Pour les situations complexes (usages à haut risque, secteurs réglementés), il oriente vers les bonnes questions à poser à votre conseil habituel.</p>
+      </details>
+      <details class="faq-item">
+        <summary><em>Q.07</em><span>Que se passe-t-il après ma pré-commande du Pack&nbsp;?</span><i>+</i></summary>
+        <p class="reponse">La pré-commande ne déclenche <strong>aucun paiement en ligne</strong>&nbsp;: c'est une réservation. Florian vous recontacte <strong>sous 48&nbsp;h ouvrées</strong> pour valider vos besoins, puis vos livrables sont construits à partir de votre diagnostic au lancement de la V1.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ CTA FINALE ════════════════════ -->
+<section class="section fond-ink cta-finale">
+  <div class="conteneur reveal">
+    <h2>Cinq minutes pour savoir <mark>où vous en êtes</mark>.</h2>
+    <p class="lede">Le diagnostic est gratuit, le relevé est immédiat, et le plan d'action est à vous.</p>
+    <a class="btn btn-primaire btn-large" href="#diagnostic" data-demarrer>Lancer le diagnostic gratuit
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <p class="micro">SANS INSCRIPTION · SANS CARTE BANCAIRE · RÉSULTAT IMMÉDIAT</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ——— CTA collant mobile ——— -->
+<div class="cta-mobile" id="cta-mobile">
+  <a class="btn btn-primaire" href="#diagnostic" data-demarrer>Faire le diagnostic · 5 min</a>
+</div>
+
+<!-- ——— Modale de réservation des offres ——— -->
+<dialog class="dialogue-offre" id="dialogue-offre">
+  <form id="form-offre" novalidate>
+    <button type="button" class="dialogue-fermer" id="dialogue-fermer" aria-label="Fermer">×</button>
+    <span class="eyebrow" id="dialogue-eyebrow">Pré-commande</span>
+    <h4 id="dialogue-titre">Pack Conformité — 290 € HT</h4>
+    <p class="intro" id="dialogue-texte">Aucun paiement en ligne : vous réservez, Florian vous recontacte sous 48 h ouvrées pour valider vos besoins.</p>
+    <label class="verrou-label" for="offre-entreprise">Votre entreprise <small>(optionnel)</small></label>
+    <input type="text" class="champ-texte" id="offre-entreprise" autocomplete="organization" placeholder="Nom de l'entreprise">
+    <label class="verrou-label" for="offre-email">Votre email professionnel</label>
+    <div class="champ-email">
+      <input type="email" id="offre-email" placeholder="prenom@entreprise.fr" autocomplete="email" inputmode="email" aria-label="Votre adresse email professionnelle">
+      <button type="submit" id="offre-envoyer">Réserver</button>
+    </div>
+    <input type="text" class="piege" id="offre-piege" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="erreur-email" id="offre-erreur">Vérifiez le format de l'adresse email.</p>
+    <p class="succes-email" id="offre-succes"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 7"/></svg><span id="offre-succes-texte"></span></p>
+    <p class="verrou-rgpd">En validant, vous acceptez d'être recontacté par Escale Digitale Solutions au sujet de cette offre. Aucune donnée n'est revendue.</p>
+    <p class="dialogue-alt">Vous préférez l'email ? <a href="/cdn-cgi/l/email-protection#2a4f59494b464f044e434d435e4b464f045945465f5e434544596a4d474b434604494547">Écrivez directement à Florian</a></p>
+  </form>
+</dialog>
+
+<!-- ════════════════════ PIED DE PAGE ════════════════════ -->
+<footer class="pied">
+  <div class="conteneur">
+    <div class="pied-int">
+      <div>
+        <a class="logo" href="#" style="text-decoration:none">
+          <span class="logo-cadre"><svg viewBox="0 0 160 160" aria-hidden="true"><rect width="160" height="160" rx="34" fill="#0B2B30"></rect><g opacity=".42" stroke="#F0ECE1" stroke-width="1.6"><path d="M38 38H122M38 64H122M38 90H122M38 116H122"></path><path d="M38 38V116M64 38V116M90 38V116M116 38V116"></path></g><path d="M99 51C91 43 78 40 66 45C51 51 43 68 48 84C53 101 70 110 87 105C93 103 98 100 102 96" fill="none" stroke="#F0ECE1" stroke-width="13" stroke-linecap="round"></path><rect x="91" y="36" width="31" height="31" rx="7" fill="#FFB52E"></rect><path d="M100 52L106 58L116 47" fill="none" stroke="#0B2B30" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="51" cy="110" r="7" fill="#C2402F"></circle><circle cx="78" cy="110" r="7" fill="#FFB52E"></circle><circle cx="105" cy="110" r="7" fill="#2E8C66"></circle></svg></span>
+          <span><b>CADRE</b><small>PAR ESCALE DIGITALE SOLUTIONS</small></span>
+        </a>
+        <p style="margin-top:16px">Le diagnostic de gouvernance IA pensé pour les PME&nbsp;: mesurer le shadow IA, protéger vos données et répondre aux obligations de l'AI Act — sans jargon.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#pourquoi">Pourquoi CADRE</a></li>
+          <li><a href="#methode">La méthode</a></li>
+          <li><a href="#diagnostic">Le diagnostic gratuit</a></li>
+          <li><a href="#offres">Offres &amp; tarifs</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="/cdn-cgi/l/email-protection#3d584e5e5c51581359545a54495c5158134e525148495452534e7d5a505c5451135e5250"><span class="__cf_email__" data-cfemail="62071101030e074c060b050b16030e074c110d0e17160b0d0c1122050f030b0e4c010d0f">[email&#160;protected]</span></a></li>
+          <li><a href="https://eds-formation.fr" target="_blank" rel="noopener">eds-formation.fr</a></li>
+          <li><a href="https://www.linkedin.com/in/escaledigitalesolutions/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pied-legal">
+      Escale Digitale Solutions — Florian Rousseau · Issoudun (Indre) · SIRET 949 409 015 00011 · Déclaration d'activité n° 24360119336 (préfecture Centre-Val de Loire).<br>
+      Vos réponses au diagnostic sont stockées uniquement dans votre navigateur&nbsp;; votre email n'est transmis que si vous demandez le relevé. Ce diagnostic fournit un éclairage indicatif et ne constitue pas un conseil juridique.
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"ProfessionalService",
+      "name":"CADRE — Diagnostic de gouvernance IA",
+      "url":"https://cadre.eds-formation.fr",
+      "description":"Diagnostic gratuit de gouvernance IA pour PME : shadow IA, protection des données, conformité avec la loi européenne sur l'IA (AI Act).",
+      "areaServed":"FR",
+      "founder":{"@type":"Person","name":"Florian Rousseau"},
+      "parentOrganization":{"@type":"Organization","name":"Escale Digitale Solutions","url":"https://eds-formation.fr"},
+      "address":{"@type":"PostalAddress","addressLocality":"Issoudun","addressRegion":"Centre-Val de Loire","addressCountry":"FR"}
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Le diagnostic CADRE est-il gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui, entièrement. Le score, le verdict et les constats s'affichent sans inscription. L'email n'est demandé que pour débloquer le plan d'action et recevoir le relevé."}},
+        {"@type":"Question","name":"Où vont les réponses au diagnostic ?","acceptedAnswer":{"@type":"Answer","text":"Les réponses sont stockées uniquement dans le navigateur. Seul l'email et le score sont transmis si l'utilisateur demande son relevé. Aucune donnée n'est revendue."}},
+        {"@type":"Question","name":"Mon entreprise est-elle concernée par l'AI Act ?","acceptedAnswer":{"@type":"Answer","text":"Dès qu'une entreprise utilise un système d'IA dans un cadre professionnel, elle entre dans le champ du règlement en tant que déployeur. L'article 4, relatif à la maîtrise de l'IA par les équipes, s'applique depuis le 2 février 2025 ; les contrôles des autorités démarrent en août 2026."}},
+        {"@type":"Question","name":"Que contient le Pack Conformité ?","acceptedAnswer":{"@type":"Answer","text":"Une charte IA personnalisée, un registre des usages pré-structuré, la classification des usages selon les niveaux de risque de l'AI Act et un plan de formation réglementaire. Tarif : 290 € HT, en pré-commande."}}
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+"use strict";
+
+/* ════════════════════════════════════════════════════════════
+   CONFIGURATION
+   ────────────────────────────────────────────────────────────
+   CRM_ENDPOINT : coller ici l'URL /exec de votre Web App
+   Google Apps Script (déploiement « Tout le monde »).
+   Laisser vide pour tester : le plan se débloque quand même.
+   ════════════════════════════════════════════════════════════ */
+const CRM_ENDPOINT = "";
+const EMAIL_CONTACT = "escale.digitale.solutions@gmail.com";
+
+/* ——— Machine à écrire du héros ——— */
+const PHRASES = [
+  "Qui surveille vos données ?",
+  "Qui encadre ChatGPT au bureau ?",
+  "Qui forme vos équipes ?",
+  "Qui répond en cas de fuite ?"
+];
+
+/* ——— Données du diagnostic ——— */
+const PILIERS = [
+  { id:"visibilite", nom:"Visibilité des usages", court:"Visibilité" },
+  { id:"regles",     nom:"Règles internes",       court:"Règles" },
+  { id:"donnees",    nom:"Protection des données",court:"Données" },
+  { id:"aiact",      nom:"Conformité réglementaire", court:"Conformité" },
+  { id:"pilotage",   nom:"Pilotage & compétences",court:"Pilotage" }
+];
+
+const QUESTIONS = [
+  /* I — Visibilité */
+  { p:0, q:"Savez-vous quels outils d'IA sont réellement utilisés dans votre entreprise aujourd'hui ?",
+    opts:[["Oui, inventaire complet et à jour",2],["En partie, sur les usages principaux",1],["Non, aucune vision d'ensemble",0]],
+    flag:"Aucun inventaire des usages : le shadow IA se développe sans contrôle.",
+    h:"J+30", act:"Lancer l'inventaire des usages IA",
+    txt:"Réunissez vos équipes 1 heure : qui utilise quelle IA, pour quoi, avec quelles données. Sans cette photo de départ, rien d'autre ne tient." },
+  { p:0, q:"Des collaborateurs utilisent-ils des comptes IA personnels et gratuits (ChatGPT, Gemini…) pour des tâches professionnelles ?",
+    opts:[["Non, uniquement des comptes professionnels encadrés",2],["Oui, et ces cas sont identifiés",1],["Aucune idée — probablement, sans suivi",0]],
+    flag:"Des données professionnelles transitent sans doute par des comptes IA personnels gratuits.",
+    h:"J+30", act:"Basculer sur des comptes professionnels",
+    txt:"Recensez les comptes personnels utilisés au travail et migrez vers des comptes pro correctement paramétrés — c'est la première fuite à colmater." },
+  { p:0, q:"Existe-t-il un registre listant qui utilise quelle IA, pour quel usage ?",
+    opts:[["Oui, tenu à jour",2],["Un début existe, incomplet",1],["Non, rien de tel",0]],
+    flag:"Sans registre des usages, impossible de prouver votre maîtrise en cas d'incident ou de contrôle.",
+    h:"J+60", act:"Ouvrir le registre des usages",
+    txt:"Un simple tableau partagé suffit : outil, utilisateur, usage, données concernées. C'est aussi votre pièce maîtresse en cas de contrôle." },
+
+  /* II — Règles internes */
+  { p:1, q:"Votre entreprise dispose-t-elle d'une charte d'usage de l'IA ?",
+    opts:[["Oui, diffusée et connue des équipes",2],["En cours de rédaction",1],["Non, rien de formalisé",0]],
+    flag:"Sans charte IA, chaque collaborateur improvise ses propres règles.",
+    h:"J+30", act:"Rédiger une charte IA d'une page",
+    txt:"Trois sections suffisent : données interdites, outils autorisés, validation humaine avant diffusion. Faites-la signer pour l'ancrer." },
+  { p:1, q:"Vos équipes savent-elles quelles données ne doivent jamais être saisies dans une IA ?",
+    opts:[["Oui, règles écrites et communiquées",2],["C'est resté flou, à l'oral",1],["Non, jamais abordé",0]],
+    flag:"Aucune règle sur les données sensibles : risque direct de fuite client, RH ou stratégique.",
+    h:"J+30", act:"Lister noir sur blanc les données interdites",
+    txt:"Affichez ce qui ne doit jamais entrer dans une IA : données clients nominatives, RH, santé, finances, secrets d'affaires." },
+  { p:1, q:"Les cas d'usage autorisés et interdits sont-ils définis (réponses clients, données RH, contrats…) ?",
+    opts:[["Oui, par écrit",2],["Partiellement, au cas par cas",1],["Non",0]],
+    flag:"Usages autorisés et interdits non définis : zones grises permanentes pour les équipes.",
+    h:"J+60", act:"Trancher les cas d'usage",
+    txt:"Pour vos 5 usages les plus fréquents, décidez par écrit : autorisé, autorisé sous conditions, ou interdit. Fini les zones grises." },
+
+  /* III — Données */
+  { p:2, q:"Pouvez-vous garantir qu'aucune donnée confidentielle (clients, RH, finances) ne part dans des IA grand public ?",
+    opts:[["Oui — blocage technique ou outils sécurisés",2],["Non, on compte sur la vigilance de chacun",1],["Aucune garantie — c'est sûrement déjà arrivé",0]],
+    flag:"Aucune barrière contre la fuite de données sensibles vers des IA grand public.",
+    h:"J+30", act:"Verrouiller la saisie de données sensibles",
+    txt:"Comptes pro, espaces de travail dédiés, consignes affichées : rendez la fuite difficile au lieu de compter sur la vigilance." },
+  { p:2, q:"Les paramètres de confidentialité de vos outils IA sont-ils vérifiés (entraînement sur vos données désactivé) ?",
+    opts:[["Oui, vérifiés et documentés",2],["Sur certains outils seulement",1],["Non — je ne savais pas que c'était réglable",0]],
+    flag:"Paramètres de confidentialité non vérifiés : vos données peuvent servir à entraîner des modèles externes.",
+    h:"J+30", act:"Vérifier la confidentialité de chaque outil",
+    txt:"Sur chaque IA utilisée, désactivez l'entraînement sur vos données et documentez le réglage, capture d'écran à l'appui." },
+  { p:2, q:"L'usage de l'IA est-il intégré à votre conformité RGPD (registre des traitements, référent informé) ?",
+    opts:[["Oui",2],["C'est en cours",1],["Non, pas encore traité",0]],
+    flag:"IA absente de votre conformité RGPD : double exposition réglementaire.",
+    h:"J+60", act:"Raccorder l'IA à votre conformité RGPD",
+    txt:"Ajoutez les usages IA à votre registre des traitements et informez votre référent RGPD — ou désignez-en un." },
+
+  /* IV — Conformité */
+  { p:3, q:"Connaissez-vous les obligations de la loi européenne sur l'IA (AI Act) qui s'appliquent à votre entreprise ?",
+    opts:[["Oui, identifiées pour nos usages",2],["De nom, sans le détail",1],["Non, pas vraiment",0]],
+    flag:"Obligations légales non identifiées alors que le règlement s'applique déjà par étapes.",
+    h:"J+60", act:"Identifier vos obligations légales",
+    txt:"Faites le point sur ce que la loi européenne sur l'IA exige pour vos usages réels — une demi-journée suffit pour y voir clair." },
+  { p:3, q:"Avez-vous classé vos usages IA selon les niveaux de risque de l'AI Act (interdit, haut risque, limité, minimal) ?",
+    opts:[["Oui, classification faite",2],["Prévu, pas encore réalisé",1],["Non",0]],
+    flag:"Usages non classés par niveau de risque : impossible de savoir quelles obligations vous concernent.",
+    h:"J+60", act:"Classer vos usages par niveau de risque",
+    txt:"Passez chaque usage au crible des 4 niveaux du règlement : interdit, haut risque, limité, minimal. C'est ce qui détermine vos obligations." },
+  { p:3, q:"Vos collaborateurs qui utilisent l'IA ont-ils été formés à son bon usage (obligation légale depuis février 2025) ?",
+    opts:[["Oui, tous les utilisateurs",2],["Certains seulement",1],["Aucun",0]],
+    flag:"Formation non assurée : obligatoire depuis février 2025, contrôlable par les autorités à partir d'août 2026.",
+    h:"J+30", act:"Former vos équipes — obligation légale",
+    txt:"Planifiez la formation de tous les utilisateurs d'IA et tracez-la dans un registre : obligatoire depuis février 2025, les contrôles démarrent en août 2026." },
+
+  /* V — Pilotage */
+  { p:4, q:"Une personne est-elle clairement responsable du sujet IA dans l'entreprise ?",
+    opts:[["Oui, un référent est désigné",2],["Informellement, selon les sujets",1],["Personne",0]],
+    flag:"Pas de référent IA : personne ne porte le sujet ni ne répond aux questions des équipes.",
+    h:"J+30", act:"Désigner un référent IA",
+    txt:"Une personne nommée, connue de tous, qui centralise questions, incidents et nouveaux usages. Sans pilote, tout le reste s'érode." },
+  { p:4, q:"Mesurez-vous ce que l'IA apporte réellement (temps gagné, qualité, erreurs évitées) ?",
+    opts:[["Oui, des indicateurs sont suivis",2],["Au ressenti uniquement",1],["Pas du tout",0]],
+    flag:"Aucune mesure d'impact : impossible d'arbitrer sereinement vos investissements IA.",
+    h:"J+90", act:"Mesurer ce que l'IA rapporte",
+    txt:"Trois indicateurs suffisent pour démarrer : temps gagné par semaine, tâches automatisées, incidents évités." },
+  { p:4, q:"Avez-vous un plan pour maintenir les compétences IA de vos équipes (veille, formation continue) ?",
+    opts:[["Oui, c'est planifié",2],["En réflexion",1],["Non",0]],
+    flag:"Compétences IA non entretenues : l'écart se creuse à chaque nouvelle version des outils.",
+    h:"J+90", act:"Planifier l'entretien des compétences",
+    txt:"Un point trimestriel et une veille simple : les outils changent tous les mois, vos règles et vos réflexes doivent suivre." }
+];
+
+const NIVEAUX = [
+  { min:0,  max:9,  nom:"NON CADRÉ",        cls:"n0",
+    texte:"<strong>Exposition forte.</strong> L'IA est utilisée chez vous sans garde-fous : données, conformité et image sont à découvert. La bonne nouvelle : les premières mesures sont rapides à poser." },
+  { min:10, max:17, nom:"FRAGILE",          cls:"n1",
+    texte:"<strong>Des briques existent, mais les failles dominent.</strong> Vos pratiques reposent sur la bonne volonté individuelle plus que sur un cadre. Quelques décisions simples changeraient la donne." },
+  { min:18, max:24, nom:"EN STRUCTURATION", cls:"n2",
+    texte:"<strong>Bonne base.</strong> L'essentiel est engagé : il reste à formaliser, diffuser et pouvoir prouver. C'est précisément ce que demande la réglementation." },
+  { min:25, max:30, nom:"CADRÉ",            cls:"n3",
+    texte:"<strong>Gouvernance en place.</strong> Vous faites partie des PME les plus avancées. L'enjeu devient le maintien : documents à jour, veille réglementaire et montée en compétences continue." }
+];
+
+const PLAN_MAINTIEN = [
+  { h:"J+30", t:"Constituer le dossier de preuve",
+    x:"Rassemblez charte signée, registre des usages et attestations de formation : en cas de contrôle, c'est ce qui compte." },
+  { h:"J+60", t:"Programmer une revue trimestrielle",
+    x:"Nouveaux usages, incidents évités, documents à mettre à jour : 1 heure par trimestre suffit pour rester cadré." },
+  { h:"J+90", t:"Suivre les évolutions du règlement",
+    x:"Les obligations montent en puissance jusqu'en 2027, avec des contrôles dès août 2026 : prévoyez une veille simple et régulière." }
+];
+
+/* ——— État ——— */
+const CLE = "cadre_v2";
+let etat = { reponses: Array(QUESTIONS.length).fill(null), courant:0, termine:false, email:false };
+let quizActif = false;
+let planCourant = [];
+const MOUVEMENT_REDUIT = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function charger(){
+  try{
+    const brut = localStorage.getItem(CLE);
+    if(!brut) return;
+    const s = JSON.parse(brut);
+    if(Array.isArray(s.reponses) && s.reponses.length === QUESTIONS.length) etat = Object.assign(etat, s);
+  }catch(e){ /* stockage indisponible : on continue en mémoire */ }
+}
+function sauver(){
+  try{ localStorage.setItem(CLE, JSON.stringify(etat)); }catch(e){}
+}
+
+const $ = id => document.getElementById(id);
+const ecrans = { depart:$("ecran-depart"), quiz:$("ecran-quiz"), resultats:$("ecran-resultats") };
+
+function montrer(nom){
+  Object.values(ecrans).forEach(e => e.classList.remove("actif"));
+  ecrans[nom].classList.add("actif");
+  quizActif = (nom === "quiz");
+}
+function versDiagnostic(){
+  const cibleY = document.getElementById("diagnostic").getBoundingClientRect().top + window.scrollY - 90;
+  window.scrollTo({ top: cibleY, behavior: MOUVEMENT_REDUIT ? "auto" : "smooth" });
+}
+
+/* ════════════════════ MACHINE À ÉCRIRE ════════════════════ */
+(function machineAEcrire(){
+  const tw = $("tw");
+  const l2 = tw.parentElement;
+
+  /* Réserve la hauteur de la plus longue phrase : aucun saut de mise en page pendant la frappe */
+  function reserver(){
+    const memo = tw.textContent;
+    let max = 0;
+    PHRASES.forEach(p => { tw.textContent = p; max = Math.max(max, l2.offsetHeight); });
+    tw.textContent = memo;
+    l2.style.minHeight = max + "px";
+  }
+  reserver();
+  let minuterie;
+  addEventListener("resize", () => { clearTimeout(minuterie); minuterie = setTimeout(reserver, 160); }, { passive:true });
+
+  if(MOUVEMENT_REDUIT){ tw.textContent = PHRASES[0]; return; }
+  let pi = 0;
+
+  function taper(texte, fini){
+    let i = 0;
+    (function pas(){
+      if(i <= texte.length){
+        tw.textContent = texte.slice(0, i);
+        i++;
+        setTimeout(pas, 42 + Math.random() * 46);
+      } else fini();
+    })();
+  }
+  function effacer(fini){
+    (function pas(){
+      const t = tw.textContent;
+      if(t.length){
+        tw.textContent = t.slice(0, -1);
+        setTimeout(pas, 22);
+      } else fini();
+    })();
+  }
+  (function boucle(){
+    taper(PHRASES[pi], () => {
+      setTimeout(() => {
+        effacer(() => {
+          pi = (pi + 1) % PHRASES.length;
+          setTimeout(boucle, 320);
+        });
+      }, 2100);
+    });
+  })();
+})();
+
+/* ════════════════════ PARALLAXE DU RELEVÉ ════════════════════ */
+(function parallaxeApercu(){
+  if(MOUVEMENT_REDUIT || !matchMedia("(pointer:fine)").matches) return;
+  const zone = document.querySelector(".apercu-zone");
+  const carte = document.querySelector(".apercu");
+  if(!zone || !carte) return;
+  zone.addEventListener("mousemove", e => {
+    const r = zone.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5;
+    const y = (e.clientY - r.top) / r.height - .5;
+    carte.style.transform = "rotate(-1.8deg) rotateX(" + (-y*5).toFixed(2) + "deg) rotateY(" + (x*6).toFixed(2) + "deg) translateY(-2px)";
+  });
+  zone.addEventListener("mouseleave", () => { carte.style.transform = ""; });
+})();
+
+/* ════════════════════ NAVIGATION GLOBALE ════════════════════ */
+const nav = $("nav");
+addEventListener("scroll", () => nav.classList.toggle("defile", scrollY > 12), { passive:true });
+
+const burger = $("burger");
+burger.addEventListener("click", () => {
+  const ouvert = document.body.classList.toggle("menu-ouvert");
+  burger.setAttribute("aria-expanded", ouvert);
+});
+document.querySelectorAll(".nav-mobile a, .nav-liens a").forEach(a =>
+  a.addEventListener("click", () => {
+    document.body.classList.remove("menu-ouvert");
+    burger.setAttribute("aria-expanded","false");
+  })
+);
+
+/* Tous les boutons « Faire le diagnostic » démarrent (ou reprennent) */
+document.querySelectorAll("[data-demarrer]").forEach(b =>
+  b.addEventListener("click", () => {
+    if(etat.termine){ afficherResultats(false); }
+    else if(etat.reponses.some(r => r !== null)){ afficherQuestion(); montrer("quiz"); }
+    /* sinon : l'écran de départ est déjà affiché */
+  })
+);
+
+/* Révélation au défilement */
+const io = ("IntersectionObserver" in window) ? new IntersectionObserver(entries => {
+  entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add("visible"); io.unobserve(en.target); } });
+}, { threshold:.16 }) : null;
+document.querySelectorAll(".reveal").forEach(el => io ? io.observe(el) : el.classList.add("visible"));
+
+/* CTA collant mobile : apparaît après le héros, s'efface devant le diagnostic */
+(function ctaMobile(){
+  const diag = document.getElementById("diagnostic");
+  let diagVisible = false;
+  const maj = () => document.body.classList.toggle("cta-visible", scrollY > 560 && !diagVisible);
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(es => { es.forEach(e => { diagVisible = e.isIntersecting; }); maj(); },
+      { rootMargin:"-10% 0px -10% 0px" }).observe(diag);
+  }
+  addEventListener("scroll", maj, { passive:true });
+})();
+
+/* ════════════════════ QUESTIONNAIRE ════════════════════ */
+function afficherQuestion(anime = true){
+  const i = etat.courant;
+  const q = QUESTIONS[i];
+
+  $("num-question").textContent = String(i+1).padStart(2,"0");
+  const pct = Math.round((i / QUESTIONS.length) * 100);
+  $("pct-progres").textContent = pct + "%";
+  $("progres").style.width = pct + "%";
+  $("tag-pilier").textContent = ["I","II","III","IV","V"][q.p] + " — " + PILIERS[q.p].nom;
+  $("texte-question").textContent = q.q;
+
+  const zone = $("options");
+  zone.innerHTML = "";
+  q.opts.forEach((opt, k) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "option" + (etat.reponses[i] === k ? " choisie" : "");
+    b.innerHTML = "<kbd>" + (k+1) + "</kbd><span></span>";
+    b.querySelector("span").textContent = opt[0];
+    b.addEventListener("click", () => repondre(k));
+    zone.appendChild(b);
+  });
+
+  $("btn-precedent").disabled = (i === 0);
+
+  if(anime && !MOUVEMENT_REDUIT){
+    const eq = ecrans.quiz;
+    eq.classList.remove("q-anim");
+    void eq.offsetWidth;
+    eq.classList.add("q-anim");
+  }
+}
+
+let verrouAvance = false;
+function repondre(k){
+  if(verrouAvance) return;
+  verrouAvance = true;
+
+  etat.reponses[etat.courant] = k;
+  sauver();
+  afficherQuestion(false); /* re-rendu pour marquer la sélection */
+
+  /* La barre avance dès la réponse, et touche 100 % sur la dernière */
+  const pctFini = Math.round(((etat.courant + 1) / QUESTIONS.length) * 100);
+  $("progres").style.width = pctFini + "%";
+  $("pct-progres").textContent = pctFini + "%";
+
+  setTimeout(() => {
+    verrouAvance = false;
+    if(etat.courant < QUESTIONS.length - 1){
+      etat.courant++;
+      sauver();
+      afficherQuestion();
+    } else {
+      etat.termine = true;
+      sauver();
+      afficherResultats(true);
+    }
+  }, 360);
+}
+
+document.addEventListener("keydown", e => {
+  if(!quizActif) return;
+  const cible = document.activeElement;
+  if(cible && (cible.tagName === "INPUT" || cible.tagName === "TEXTAREA")) return;
+  if(["1","2","3"].includes(e.key)) repondre(Number(e.key) - 1);
+});
+
+$("btn-precedent").addEventListener("click", () => {
+  if(etat.courant > 0){ etat.courant--; sauver(); afficherQuestion(); }
+});
+
+/* ════════════════════ RÉSULTATS ════════════════════ */
+function calculer(){
+  let total = 0;
+  const parPilier = PILIERS.map(() => 0);
+  const flags = [];
+  QUESTIONS.forEach((q, i) => {
+    const k = etat.reponses[i];
+    if(k === null) return;
+    const pts = q.opts[k][1];
+    total += pts;
+    parPilier[q.p] += pts;
+    if(pts === 0) flags.push(q.flag);
+  });
+  return { total, parPilier, flags };
+}
+
+function compterScore(cible){
+  const el = $("score-anime");
+  if(MOUVEMENT_REDUIT){ el.textContent = cible; return; }
+  const duree = 900, depart = performance.now();
+  function pas(t){
+    const x = Math.min(1, (t - depart) / duree);
+    el.textContent = Math.round(cible * (1 - Math.pow(1 - x, 3)));
+    if(x < 1) requestAnimationFrame(pas);
+  }
+  requestAnimationFrame(pas);
+}
+
+function construirePlan(){
+  const poids = { "J+30":0, "J+60":1, "J+90":2 };
+  const items = [];
+  QUESTIONS.forEach((q, i) => {
+    const k = etat.reponses[i];
+    if(k === null) return;
+    const pts = q.opts[k][1];
+    if(pts < 2) items.push({ pts, h:q.h, t:q.act, x:q.txt, p:q.p });
+  });
+  if(items.length === 0) return PLAN_MAINTIEN.slice();
+  items.sort((a,b) => a.pts - b.pts || poids[a.h] - poids[b.h] || a.p - b.p);
+  return items.slice(0, 6);
+}
+
+function afficherResultats(defiler){
+  const r = calculer();
+  const niveau = NIVEAUX.find(n => r.total >= n.min && r.total <= n.max) || NIVEAUX[0];
+
+  $("date-diag").textContent = new Date().toLocaleDateString("fr-FR", { day:"2-digit", month:"long", year:"numeric" });
+  $("verdict-texte").innerHTML = niveau.texte;
+
+  const tampon = $("tampon");
+  tampon.className = "tampon " + niveau.cls;
+  $("tampon-niveau").textContent = niveau.nom;
+  tampon.setAttribute("aria-label", "Tampon de verdict : " + niveau.nom);
+  void tampon.offsetWidth;            /* relance l'animation */
+  tampon.classList.add("frappe");
+
+  /* La zone verdict encaisse le coup de tampon */
+  const zoneVerdict = tampon.closest(".verdict-zone");
+  zoneVerdict.classList.remove("impact");
+  void zoneVerdict.offsetWidth;
+  zoneVerdict.classList.add("impact");
+
+  /* Barres par pilier */
+  const zoneBarres = $("barres");
+  zoneBarres.innerHTML = "";
+  r.parPilier.forEach((pts, k) => {
+    const ratio = pts / 6;
+    const cls = pts <= 2 ? "r0" : pts <= 4 ? "r1" : "r2";
+    const ligne = document.createElement("div");
+    ligne.className = "barre-ligne";
+    ligne.innerHTML =
+      "<label></label>" +
+      "<div class='barre-piste'><div class='barre-rempli " + cls + "'></div></div>" +
+      "<output>" + pts + "/6</output>";
+    ligne.querySelector("label").textContent = PILIERS[k].court;
+    zoneBarres.appendChild(ligne);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      ligne.querySelector(".barre-rempli").style.width = Math.max(ratio*100, 4) + "%";
+    }));
+  });
+
+  /* Constats */
+  const zoneConstats = $("constats");
+  zoneConstats.innerHTML = "";
+  if(r.flags.length === 0){
+    const c = document.createElement("p");
+    c.className = "constat ok";
+    c.textContent = "Aucun point critique détecté : vos réponses ne révèlent pas de faille majeure. Concentrez-vous sur la preuve et la mise à jour.";
+    zoneConstats.appendChild(c);
+  } else {
+    r.flags.slice(0, 4).forEach(f => {
+      const c = document.createElement("p");
+      c.className = "constat";
+      c.textContent = f;
+      zoneConstats.appendChild(c);
+    });
+  }
+
+  /* Plan d'action personnalisé : construit sur les réponses exactes.
+     Priorité aux réponses à 0 point, puis à 1 point ; à urgence égale,
+     l'horizon le plus court passe devant. 6 actions maximum. */
+  planCourant = construirePlan();
+  const zonePlan = $("plan-contenu");
+  zonePlan.innerHTML = "";
+  planCourant.forEach(a => {
+    const item = document.createElement("div");
+    item.className = "plan-item";
+    item.innerHTML = "<span class='horizon'>" + a.h + "</span><p><b></b><span></span></p>";
+    item.querySelector("b").textContent = a.t;
+    item.querySelector("p span").textContent = a.x;
+    zonePlan.appendChild(item);
+  });
+
+  /* Le contexte du diagnostic est joint à la réservation via la modale des offres */
+
+  /* Verrou déjà levé lors d'une visite précédente */
+  if(etat.email) deverrouillerPlan(false);
+
+  compterScore(r.total);
+  montrer("resultats");
+  if(defiler !== false) versDiagnostic();
+}
+
+/* ——— Réservation des offres : modale intégrée (plus de mailto) ——— */
+(function reservationOffres(){
+  const dlg = $("dialogue-offre");
+  const btnPack = $("btn-pack"), btnPilotage = $("btn-pilotage");
+  if(!dlg || !dlg.showModal){
+    /* navigateur très ancien : repli sur l'email */
+    btnPack.href = "mailto:" + EMAIL_CONTACT + "?subject=" + encodeURIComponent("Pré-commande Pack Conformité CADRE");
+    btnPilotage.href = "mailto:" + EMAIL_CONTACT + "?subject=" + encodeURIComponent("Liste d'attente — CADRE Pilotage");
+    return;
+  }
+  let offreCourante = "pack";
+  function ouvrir(type){
+    offreCourante = type;
+    $("dialogue-eyebrow").textContent = type === "pack" ? "Pré-commande" : "Liste d'attente";
+    $("dialogue-titre").textContent = type === "pack" ? "Pack Conformité — 290 € HT" : "Pilotage — 39 € HT/mois";
+    $("dialogue-texte").textContent = type === "pack"
+      ? "Aucun paiement en ligne : vous réservez, Florian vous recontacte sous 48 h ouvrées pour valider vos besoins."
+      : "Laissez votre email : vous serez prévenu en priorité à l'ouverture de l'offre Pilotage, après le lancement du pack.";
+    $("offre-envoyer").textContent = type === "pack" ? "Réserver" : "M'inscrire";
+    $("offre-succes").style.display = "none";
+    $("offre-erreur").style.display = "none";
+    dlg.showModal();
+    $("offre-email").focus();
+  }
+  btnPack.addEventListener("click", e => { e.preventDefault(); ouvrir("pack"); });
+  btnPilotage.addEventListener("click", e => { e.preventDefault(); ouvrir("pilotage"); });
+  $("dialogue-fermer").addEventListener("click", () => dlg.close());
+  dlg.addEventListener("click", e => { if(e.target === dlg) dlg.close(); });
+
+  $("form-offre").addEventListener("submit", e => {
+    e.preventDefault();
+    if($("offre-piege").value){ dlg.close(); return; }  /* robot : on n'envoie rien */
+    const champ = $("offre-email");
+    const email = champ.value.trim();
+    const valide = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    $("offre-erreur").style.display = valide ? "none" : "block";
+    if(!valide){ champ.focus(); return; }
+
+    const bouton = $("offre-envoyer");
+    bouton.disabled = true;
+    const libelle = bouton.textContent;
+    bouton.textContent = "Envoi…";
+
+    const r = etat.termine ? calculer() : null;
+    const charge = {
+      type: offreCourante === "pack" ? "precommande-pack" : "liste-attente-pilotage",
+      email: email,
+      entreprise: $("offre-entreprise").value.trim() || "Non précisé",
+      score: r ? r.total : null,
+      date: new Date().toISOString(),
+      source: "cadre-landing-v6"
+    };
+    const terminer = () => {
+      bouton.disabled = false;
+      bouton.textContent = libelle;
+      $("offre-succes-texte").textContent = offreCourante === "pack"
+        ? "Réservation enregistrée — réponse sous 48 h ouvrées."
+        : "Inscription enregistrée — vous serez prévenu en priorité.";
+      $("offre-succes").style.display = "inline-flex";
+    };
+    if(CRM_ENDPOINT){
+      fetch(CRM_ENDPOINT, {
+        method:"POST", mode:"no-cors",
+        headers:{ "Content-Type":"text/plain;charset=utf-8" },
+        body: JSON.stringify(charge)
+      }).catch(() => {}).finally(terminer);
+    } else {
+      console.warn("CADRE : CRM_ENDPOINT non configuré — réservation non transmise (mode test).", charge);
+      setTimeout(terminer, 450);
+    }
+  });
+})();
+
+/* ——— Verrou email ——— */
+function deverrouillerPlan(animer){
+  const zone = $("plan-zone");
+  zone.classList.remove("verrouille");
+  $("plan-contenu").removeAttribute("aria-hidden");
+  const v = $("verrou");
+  if(v) v.remove();
+  if(animer){
+    zone.style.animation = "apparition .5s ease both";
+    $("succes-email").style.display = "inline-flex";
+  }
+}
+
+$("form-email").addEventListener("submit", e => {
+  e.preventDefault();
+  if($("piege").value){ deverrouillerPlan(false); return; }  /* robot : on n'envoie rien */
+
+  const champ = $("champ-email");
+  const email = champ.value.trim();
+  const valide = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+  $("erreur-email").style.display = valide ? "none" : "block";
+  if(!valide){ champ.focus(); return; }
+
+  const bouton = $("btn-email");
+  bouton.disabled = true;
+  bouton.textContent = "Envoi…";
+
+  const r = calculer();
+  const niveau = NIVEAUX.find(n => r.total >= n.min && r.total <= n.max) || NIVEAUX[0];
+  const plan = planCourant.length ? planCourant : construirePlan();
+  const charge = {
+    email: email,
+    secteur: $("champ-secteur").value || "Non précisé",
+    score: r.total,
+    niveau: niveau.nom,
+    piliers: Object.fromEntries(PILIERS.map((p,k) => [p.id, r.parPilier[k]])),
+    detail: QUESTIONS.map((q, i) => {
+      const k = etat.reponses[i];
+      return { n:i+1, pilier:PILIERS[q.p].court, question:q.q,
+               reponse: k === null ? "" : q.opts[k][0],
+               points:  k === null ? null : q.opts[k][1] };
+    }),
+    constats: r.flags,
+    plan: plan.map(a => ({ horizon:a.h, titre:a.t, texte:a.x })),
+    date: new Date().toISOString(),
+    source: "cadre-landing-v6"
+  };
+
+  const terminer = () => {
+    etat.email = true;
+    sauver();
+    deverrouillerPlan(true);
+  };
+
+  if(CRM_ENDPOINT){
+    fetch(CRM_ENDPOINT, {
+      method:"POST",
+      mode:"no-cors",
+      headers:{ "Content-Type":"text/plain;charset=utf-8" },
+      body: JSON.stringify(charge)
+    }).catch(() => {}).finally(terminer);
+  } else {
+    console.warn("CADRE : CRM_ENDPOINT non configuré — email non transmis (mode test).", charge);
+    setTimeout(terminer, 450);
+  }
+});
+
+/* ——— Boutons du diagnostic ——— */
+$("btn-commencer").addEventListener("click", () => {
+  etat = { reponses: Array(QUESTIONS.length).fill(null), courant:0, termine:false, email:etat.email };
+  sauver();
+  afficherQuestion();
+  montrer("quiz");
+});
+
+$("btn-reprendre").addEventListener("click", () => {
+  if(etat.termine){ afficherResultats(false); }
+  else { afficherQuestion(); montrer("quiz"); }
+});
+
+$("btn-refaire").addEventListener("click", () => {
+  if(!confirm("Effacer vos réponses et recommencer le diagnostic ?")) return;
+  try{ localStorage.removeItem(CLE); }catch(e){}
+  location.reload();
+});
+
+$("btn-imprimer").addEventListener("click", () => window.print());
+
+/* ——— Démarrage ——— */
+charger();
+const aProgresse = etat.reponses.some(r => r !== null);
+if(etat.termine){
+  $("btn-reprendre").hidden = false;
+  $("btn-reprendre").textContent = "Revoir mes résultats";
+} else if(aProgresse){
+  $("btn-reprendre").hidden = false;
+  $("btn-reprendre").textContent = "Reprendre (question " + (etat.courant+1) + "/15)";
+}
+</script>
+</body>
+</html>
