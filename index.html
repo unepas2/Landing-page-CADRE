@@ -1320,12 +1320,14 @@ body.menu-ouvert .burger i:nth-child(3){transform:translateY(-7px) rotate(-45deg
 /* ════════════════════════════════════════════════════════════
    CONFIGURATION
    ────────────────────────────────────────────────────────────
-   CRM_ENDPOINT : coller ici l'URL /exec de votre Web App
-   Google Apps Script (déploiement « Tout le monde »).
+   EMAIL_CONTACT : adresse qui reçoit les leads.
+   CRM_ENDPOINT  : endpoint AJAX de FormSubmit (envoi JSON en
+   mode CORS). Les infos du lead sont transmises directement
+   par email, sans serveur ni base de données.
    Laisser vide pour tester : le plan se débloque quand même.
    ════════════════════════════════════════════════════════════ */
-const CRM_ENDPOINT = "";
 const EMAIL_CONTACT = "escale.digitale.solutions@gmail.com";
+const CRM_ENDPOINT = "https://formsubmit.co/ajax/" + EMAIL_CONTACT;
 
 /* ——— Machine à écrire du héros ——— */
 const PHRASES = [
@@ -1832,11 +1834,18 @@ function afficherResultats(defiler){
     bouton.textContent = "Envoi…";
 
     const r = etat.termine ? calculer() : null;
+    const niveau = r ? (NIVEAUX.find(n => r.total >= n.min && r.total <= n.max) || NIVEAUX[0]) : null;
     const charge = {
+      _subject: offreCourante === "pack"
+        ? "CADRE — Pré-commande Pack Conformité"
+        : "CADRE — Liste d'attente Pilotage",
+      _template: "table",
+      _captcha: "false",
       type: offreCourante === "pack" ? "precommande-pack" : "liste-attente-pilotage",
       email: email,
       entreprise: $("offre-entreprise").value.trim() || "Non précisé",
-      score: r ? r.total : null,
+      score: r ? r.total : "Non renseigné",
+      niveau: niveau ? niveau.nom : "Non renseigné",
       date: new Date().toISOString(),
       source: "cadre-landing-v6"
     };
@@ -1850,8 +1859,8 @@ function afficherResultats(defiler){
     };
     if(CRM_ENDPOINT){
       fetch(CRM_ENDPOINT, {
-        method:"POST", mode:"no-cors",
-        headers:{ "Content-Type":"text/plain;charset=utf-8" },
+        method:"POST", mode:"cors",
+        headers:{ "Content-Type":"application/json", "Accept":"application/json" },
         body: JSON.stringify(charge)
       }).catch(() => {}).finally(terminer);
     } else {
@@ -1892,19 +1901,17 @@ $("form-email").addEventListener("submit", e => {
   const niveau = NIVEAUX.find(n => r.total >= n.min && r.total <= n.max) || NIVEAUX[0];
   const plan = planCourant.length ? planCourant : construirePlan();
   const charge = {
+    _subject: "CADRE — Nouveau lead : plan d'action débloqué",
+    _template: "table",
+    _captcha: "false",
     email: email,
     secteur: $("champ-secteur").value || "Non précisé",
-    score: r.total,
+    score: r.total + " / 30",
     niveau: niveau.nom,
-    piliers: Object.fromEntries(PILIERS.map((p,k) => [p.id, r.parPilier[k]])),
-    detail: QUESTIONS.map((q, i) => {
-      const k = etat.reponses[i];
-      return { n:i+1, pilier:PILIERS[q.p].court, question:q.q,
-               reponse: k === null ? "" : q.opts[k][0],
-               points:  k === null ? null : q.opts[k][1] };
-    }),
-    constats: r.flags,
-    plan: plan.map(a => ({ horizon:a.h, titre:a.t, texte:a.x })),
+    entreprise: "Non précisé",
+    piliers: PILIERS.map((p,k) => `${p.court} : ${r.parPilier[k]}`).join(" · "),
+    constats: r.flags.length ? r.flags.join(" · ") : "Aucun constat prioritaire",
+    plan: plan.map(a => `[${a.h}] ${a.t}`).join(" · "),
     date: new Date().toISOString(),
     source: "cadre-landing-v6"
   };
@@ -1918,8 +1925,8 @@ $("form-email").addEventListener("submit", e => {
   if(CRM_ENDPOINT){
     fetch(CRM_ENDPOINT, {
       method:"POST",
-      mode:"no-cors",
-      headers:{ "Content-Type":"text/plain;charset=utf-8" },
+      mode:"cors",
+      headers:{ "Content-Type":"application/json", "Accept":"application/json" },
       body: JSON.stringify(charge)
     }).catch(() => {}).finally(terminer);
   } else {
